@@ -1,0 +1,46 @@
+<html>
+<header><title> U of S Scholarships </title> </header>
+<head>
+<link rel="stylesheet" href="createAccount.css">
+<script src = "createAccount.js"></script>
+</head>
+
+<br><br>
+
+<h1> U of S Scholarships Account Registration </h1>
+
+<body onload = initiateProgram()>
+
+<form name = "mainform" id = "mainform" onsubmit = verifyValidSubmission() action = "correctPassword.html">
+	<label for="fname">First Name:</label><br>
+	<input type="text" id="fname"><br><br>
+	
+	<label for="lname">Last Name:</label><br>
+	<input type="text" id="lname"><br><br>
+	
+	<label for="id">Student ID:</label><br>
+	<input type="text" id="id"><br><br>
+	
+	<label for="email">Email Address:</label><br>
+	<input type="text" id="email" oninput = verifyGoodEmail()><br>
+	<label id = "validEmail"> Please enter a valid email address. </label><br><br>
+	
+	<label for="user">Username:</label><br>
+	<input type="text" id="user" name="user"><br><br>
+	
+	<!-- <label for="user">Title:</label><br> -->
+	<!-- <input type="datalist" id="user"><br><br> -->
+	<label for="pw">Password:</label><br>
+	<input type="password" id="pw"  oninput= verifyGoodPassword()>
+	<label id = "goodPW">Requirements: 6-20 characters, one numeric digit, one uppercase, one lowercase.</label><br><br>
+	
+	<label for="trupw">Confirm Password:</label><br>
+	<input type="password" id="trupw" oninput = verifyPasswordsMatch()><br>
+	<label id = "PWMatch">Please ensure passwords match.</label><br><br>
+	
+	<input type = "button" id = "return" value = "Return to Sign In" onclick = returnToSignIn()> 
+	<input type="submit" id="submit" value = "Submit and Sign In" ><br><br><br>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+h1{
+	text-align: center;
+}
+
+#fname{
+	width: 350px 
+}
+
+#lname{
+	width: 350px
+}
+
+
+#id{
+	width: 350px
+}
+
+#email{
+	width: 350px
+}
+
+#user{
+	width: 350px
+}
+
+#pw{
+	width: 350px
+}
+
+#trupw{
+	width: 350px
+}
+
+#goodPW{
+	font-size: 10px;
+	color: red;
+}
+
+#PWMatch{
+	font-size: 10px;
+	color: red;
+}
+
+#validEmail{
+	font-size: 10px;
+	color: red;
+}
+
+#return{
+	margin-left: 10px;
+	margin-right: 80px;
+}
+
+
+form{
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}

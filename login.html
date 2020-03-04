@@ -1,0 +1,25 @@
+<html>
+<header><title> U of S Scholarships </title> </header>
+<head>
+<link rel="stylesheet" href="login.css">
+<script src="login.js"></script>
+</head>
+
+<br><br>
+
+<h1> University of Saskatchewan Scholarship System </h1>
+
+<br><br>
+<body onload = initiateProgram()>
+
+<form name = "mainform" id = "mainform" onsubmit = "verifyPassword()" action = "correctPassword.html" accept-charset="UTF-8" method="post">
+	<input type="text" id="user" name="user" placeholder = "Username"><br><br>
+	<input type="password" id="pw" placeholder = "Password"><br><br>
+	<input type="submit" id="sign_in" value = "Sign in" ><br><br><br>
+	<input type="button" id = "forgot" value = "Forgot Password" onclick = forgotPassword()>
+	<input type="button" id = "new_account" value = "Create an Account" onclick = newAccount()>
+</form>
+
+</body>
+</html>
+

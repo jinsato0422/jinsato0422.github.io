@@ -1,0 +1,42 @@
+body {
+  background-image: url('login_background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position:center
+}
+
+#user{
+	width: 350px;
+}
+
+#pw{
+	width: 350px;
+}
+
+#forgot{
+	margin-left: 30px;
+}
+
+#new_account{
+	margin-left: 40px;
+}
+
+#sign_in{
+	margin-left: 285px;
+}
+
+
+h1{
+	text-align: center;
+	color: white;
+}
+
+form{
+  width: 350px;
+  border: 15px solid #00B32B;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #055a08;
+}
