@@ -1,3 +1,6 @@
+
+/* Sets up the main body of the page, to include a background image of people throwing their graduation
+hats into the air and correctly positions this image in space */
 body {
   background-image: url('login_background.jpg');
   background-repeat: no-repeat;
@@ -6,6 +9,9 @@ body {
   background-position:center
 }
 
+
+/* The next five styles set the alignment for the many fields in the page so that they are in the correct
+position in space and are the correct width wthin the main form */
 #user{
 	width: 350px;
 }
@@ -27,11 +33,18 @@ body {
 }
 
 
+
+
+/* This style aligns the title of the page in the center and colours the text white */
 h1{
 	text-align: center;
 	color: white;
 }
 
+
+
+/* This style aligns the form within space, creates a border for the form and sets the background and border
+colours for the form to two different shades of green */
 form{
   width: 350px;
   border: 15px solid #00B32B;
