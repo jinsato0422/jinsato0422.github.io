@@ -1,3 +1,6 @@
+
+<!-- Sets up the program with the correct Javascript controller and css style sheet.
+Sets the header to U of S Scholarships -->
 <html>
 <header><title> U of S Scholarships </title> </header>
 <head>
@@ -7,10 +10,16 @@
 
 <br><br>
 
+<!-- Title for the page is account registration -->
 <h1> U of S Scholarships Account Registration </h1>
 
+<!-- When the program page is loaded the initiateProgram() command is run -->
 <body onload = initiateProgram()>
 
+
+<!-- The main form to be filled out for the page, contains boxes for the user to fill in 
+all required information. When the form is submitted the verifyValidSubmission() command is
+run and the page changes to correctPassword.html -->
 <form name = "mainform" id = "mainform" onsubmit = verifyValidSubmission() action = "correctPassword.html">
 	<label for="fname">First Name:</label><br>
 	<input type="text" id="fname"><br><br>
@@ -27,9 +36,7 @@
 	
 	<label for="user">Username:</label><br>
 	<input type="text" id="user" name="user"><br><br>
-	
-	<!-- <label for="user">Title:</label><br> -->
-	<!-- <input type="datalist" id="user"><br><br> -->
+
 	<label for="pw">Password:</label><br>
 	<input type="password" id="pw"  oninput= verifyGoodPassword()>
 	<label id = "goodPW">Requirements: 6-20 characters, one numeric digit, one uppercase, one lowercase.</label><br><br>

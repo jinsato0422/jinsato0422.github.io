@@ -1,3 +1,5 @@
+
+/* The following styles set where the text boxes are located in the createAccount page */
 h1{
 	text-align: center;
 }
@@ -31,6 +33,8 @@ h1{
 	width: 350px
 }
 
+/* The following styles set the size and color of the small text shown below the password \
+and email boxes */
 #goodPW{
 	font-size: 10px;
 	color: red;
@@ -46,12 +50,14 @@ h1{
 	color: red;
 }
 
+/* The following stule sets where the return button is located */
 #return{
 	margin-left: 10px;
 	margin-right: 80px;
 }
 
 
+/* The following style sets everything up for the main form including it's center location */
 form{
   width: 350px;
   margin-left: auto;
