@@ -1,0 +1,311 @@
+<html>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<head>
+    <!--Sets the title of the page-->
+    <title> Application Form </title>
+    <!--Describes the page and code-->
+    <meta charset="UTF-8">
+    <meta name="descripton" content="This page is for students to apply to scholarship applications.">
+    <meta name="author" content="JJRey">
+    <!--Sets the style of the page-->
+    <style>
+        /*Sets the style of the background (logo and color)*/
+        
+        body {
+            background-color: whitesmoke;
+            background-image: url("usask_usask_colour.png");
+            background-repeat: no-repeat;
+            background-size: 20%;
+            background-position-x: 510px;
+            background-position-y: 480px;
+        }
+        /*Sets the style of the header*/
+        
+        h1 {
+            color: black;
+            text-align: center;
+            font-size: 28;
+            font-family: "Times New Roman";
+        }
+        /*Aligns the form to the center*/
+        
+        p {
+            text-align: center
+        }
+        /*Styles the input boxes*/
+        
+        input[type=text] {
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 2px;
+            border-color: purple;
+            padding: 2.5px;
+        }
+        /*Styles the input boxes*/
+        
+        input[type=email] {
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 2px;
+            border-color: purple;
+        }
+        /*Styles the input boxes*/
+        
+        input[type=tel] {
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 2px purple;
+        }
+        /*Styles the input boxes*/
+        
+        input[type=number] {
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 2px purple;
+        }
+        /*Styles the input boxes*/
+        
+        input[type=date] {
+            width: 32.75%;
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 2px purple;
+        }
+        /*Styles the input boxes*/
+        
+        input[type=file] {
+            display: none;
+            cursor: pointer;
+        }
+        /*Styles the input boxes*/
+        
+        input[type=submit] {
+            background-color: rgb(41, 100, 41);
+            padding: 2px 20px;
+            cursor: pointer;
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-style: inherit;
+        }
+        /*Styles the drop-down menu*/
+        
+        select {
+            margin: 4px 0;
+            width: 27.5%;
+            padding: 12x 180px;
+            border: none;
+            background-color: #f1f1f1;
+        }
+        /*Styles the input box*/
+        
+        #fname {
+            background-color: #E8E2E1;
+            padding: 4px;
+        }
+        /*Styles the input box*/
+        
+        #lname {
+            background-color: #E8E2E1;
+            padding: 4px;
+        }
+        /*Styles the input box*/
+        
+        #email {
+            background-color: #E8E2E1;
+            padding: 4px;
+        }
+        /*Styles the input box*/
+        
+        #number {
+            background-color: #E8E2E1;
+            padding: 4px;
+        }
+        /*Styles the input box*/
+        
+        #s_id {
+            background-color: #E8E2E1;
+            padding: 4px;
+        }
+        /*Styles the input box*/
+        
+        #gpa {
+            background-color: #E8E2E1;
+            padding: 4px;
+        }
+        /*Styles the input box*/
+        
+        #dob {
+            width: 28.5%;
+            background-color: #E8E2E1;
+            padding: 4px;
+        }
+        /*Styles the input box*/
+        
+        #degree {
+            background-color: #E8E2E1;
+            padding: 4px;
+            margin: 4px 0;
+        }
+        /*Styles the input box*/
+        
+        #grades {
+            background-color: #E8E2E1;
+            padding: 4px;
+            width: 16%;
+            margin: 8px 0;
+        }
+        /*Styles the labels*/
+        
+        .label {
+            color: whitesmoke;
+            background-color: #6ED74B;
+            border-radius: 0px;
+        }
+        /*Styles the labels*/
+        
+        .fname {
+            padding: 8px 40px;
+        }
+        /*Styles the labels*/
+        
+        .lname {
+            padding: 8px 22px;
+        }
+        /*Styles the labels*/
+        
+        .email {
+            padding: 8px 20px;
+        }
+        /*Styles the labels*/
+        
+        .number {
+            padding: 8px 23px;
+        }
+        /*Styles the labels*/
+        
+        .s_id {
+            padding: 8px 18px;
+        }
+        /*Styles the labels*/
+        
+        .gpa {
+            padding: 8px 15px;
+        }
+        /*Styles the labels*/
+        
+        .dob {
+            padding: 8px 30px;
+        }
+        /*Styles the labels*/
+        
+        .transcript {
+            background-color: #2e7218;
+            padding: 6px 20px;
+            margin: 4px 0;
+            border-style: outset;
+            border-color: rgb(201, 206, 201);
+            border-right-width: 1.5px;
+            border-bottom-width: 2px;
+        }
+        /*Styles the labels*/
+        
+        .otherdocs {
+            background-color: #2e7218;
+            padding: 6px 20px;
+            margin: 4px 0;
+            border-style: outset;
+            border-color: rgb(201, 206, 201);
+            border-right-width: 1.5px;
+            border-bottom-width: 2px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!--Text for header-->
+    <h1>APPLICATION FORM</h1>
+
+    <!--Starts of the form-->
+    <form>
+        <form action="mailto:joweria.ekram1@ucalgary.ca" method="post" enctype="text/plain">
+            <fieldset>
+                <legend></legend>
+                <!--applies the paragraph style setting to form-->
+                <p id="para1">
+                    <!--Label and input for First Name-->
+                    <label for="fname" class="label fname">First Name</label>&nbsp&nbsp
+                    <input type="text" id="fname" name="fname" size="43" required><br>
+
+                    <!--Label and input for Last Name-->
+                    <label for="lname" class="label lname">Last Name</label>&nbsp&nbsp
+                    <input type="text" id="lname" name="lname" size="48.5" required><br>
+
+                    <!--Label and input for Email-->
+                    <label for="email" class="label email">Email Address</label>&nbsp&nbsp
+                    <input type="email" id="email" name="email" size="46" required><br>
+
+                    <!--Label and input for Phone Number-->
+                    <label for="number" class="label number">Phone Number</label>&nbsp&nbsp
+                    <input type="tel" id="number" name="number" size="45"><br>
+
+                    <!--Label and input for Student ID-->
+                    <label for="s_id" class="label s_id">Student ID</label>&nbsp&nbsp
+                    <input type="number" id="s_id" name="s_id" size="50" required> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+                    <!--Label and input for GPA-->
+                    <label for="gpa" class="label gpa">GPA</label>&nbsp&nbsp
+                    <input type="text" id="gpa" name="gpa" size="4" maxlength="4" required><br>
+
+                    <!--Label and input for the Date of Birth-->
+                    <label for="dob" class="label dob">Date of Birth</label>&nbsp&nbsp
+                    <input type="date" id="dob" name="dob"><br>
+
+                    <!--Label and input for Current Degree-->
+                    <label for="degree" class="label degree" style="padding: 8px 30px">Current Degree</label>&nbsp&nbsp
+                    <select id="degree" name="degree">
+                        <option value = "empty"></option>
+                        <option value = "undergrad">Undergrad</option>
+                        <option value = "masters">Masters</option>
+                        <option value = "phd">PHD</option>
+                    </select><br>
+
+                    <!--Label and input for grades information-->
+                    <label for="grades" class="label grades" style="padding: 8px 20px">Does your transcript have a grade of B or lower?</label>&nbsp&nbsp
+                    <select id="grades" name="grades">
+                        <option value = "empty"></option>
+                        <option value = "no">No</option>
+                        <option value = "yes">Yes</option>
+                    </select><br>
+                    <br>
+
+                    <!--Label and input for uploading transcript-->
+                    <label for="transcript" class="label transcript" style="cursor: pointer">
+                    <input type="file" id = "transcript" name = "transcript" required/> 
+                    Upload Transcript</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+                    <!--Label and input for uploading supporting documents-->
+                    <label for="otherdocs" class="label otherdocs" style="cursor: pointer">
+                    <input type="file" id="otherdocs" name="otherdocs"/>
+                    Upload Supporting Documents</label>
+                    <br>
+                    <br>
+
+                    <!--Input for submitting form-->
+                    <input type="submit" value=Submit>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </p>
+            </fieldset>
+        </form>
+        <!--End of form-->
+
+</body>
+
+</html>
