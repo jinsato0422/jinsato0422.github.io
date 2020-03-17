@@ -7,6 +7,19 @@ var pw;
 var verifyPw;
 
 
+ // Your web app's Firebase configuration
+ var firebaseConfig = {
+    apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
+    authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
+    databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
+    projectId: "scholarshipdatabase-a4ba6",
+    storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
+    messagingSenderId: "664316210117",
+    appId: "1:664316210117:web:cb3dd008688cafe731b9ac",
+    measurementId: "G-1WBTMTY0PX"
+  };
+  
+
 
 /*Sets up all the required variables for the program when the page is first loaded. All
 variables are text areas that users can fill in on the main form*/
@@ -18,6 +31,13 @@ function initiateProgram(){
 	pw = document.getElementById("pw");
 	verifyPw = document.getElementById("trupw");
 	email = document.getElementById("email");
+	
+	 // Initialize Firebase
+	 firebase.initializeApp(firebaseConfig);
+	 firebase.analytics();
+	 
+	 alert("initialized");
+
 }
 
 
@@ -100,4 +120,16 @@ function verifyValidSubmission(){
 		document.mainform.action = "createAccount.html";
 		alert("One or more fields has invalid information, please try again");
 	}
+	
 }	
+
+
+
+
+function writeUserData(userId, name, email) {
+	alert("here");
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email
+  });
+}
