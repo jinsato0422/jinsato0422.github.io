@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="NewScholarship.css">
+    <h1>
+        WELCOME TO THE NEW SCHOLARSHIPS PAGE! 
+    </h1>
+    </head>
+    <body>
+    <h4>
+        Fill out the following to add a new scholarship:
+    </h4>
+    <!--the following is the form for the scholarship coordinator to fill out-->
+    <form>
+        <!--this is the name of the scholarship-->
+        <div>
+            <label for = "name" style="text-align: center;"> Name: </label>
+            <br/>
+            <input type="text" name="name" maxlength="50" size="30">
+        </div>
+        <br/>
+        <!--this is the amount granted based on input-->
+        <div>
+            <label for = "amount" style="text-align: center;"> Amount Granted: </label>
+            <br/>
+            <input type="text" name="amount" maxlength="50" size="30">
+        </div>
+        <br/>
+        <!--this is the amount of students able to recieve said scholarship-->
+        <div>
+            <label for = "students" style="text-align: center;"> Amount of students awarded: </label>
+            <br/>
+            <input type="text" name="students" maxlength="50" size="30">
+        </div>
+        <br/>
+        <!--this is a selection of types of scholarships the coordinator can choose from-->
+        <div>
+            <label for = "type"> Select the type of scholarship you want to create.</label>
+            <br/>
+            <select id="type" name="type">
+                <option value="fwide">Faculty Wide</option>
+                <option value="fspecific">Faculty Specific</option>
+                <option value="dwide">Department Wide</option>
+                <option value="uwide">University Wide</option>
+              </select>
+            </div>
+        <br/>
+        <!--the coordinator can choose from these two duration options for said scholarship-->
+        <div class ="col-75">
+            <label for = "times"> Select the scholarship time duration:</label>
+            <br/>
+            <select id = "times" name="times">
+                <option value="sem">Per semester</option>
+                <option value="fspecific">Yearly</option>
+              </select>
+        </div>
+        <br/>
+        <!--this is the summary of the scholarship required of the scholarship coordinator-->
+        <div>
+            <label for = "summary"> Submit a short summary of the scholarship: </label>
+            <br/>
+            <textarea name = "summary" maxlength="2000" cols="25" rows="13"></textarea>
+        </div> 
+        <br/>
+        <br/>
+        <!--this is the submit button for the form-->
+        <input type="submit" value="Submit"> 
+    </form>
+    </body>
+
+</html>
