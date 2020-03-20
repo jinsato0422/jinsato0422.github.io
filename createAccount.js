@@ -24,12 +24,18 @@ function initiateProgram(){
 }
 
 
+// function verifyGoodID(){
+	// var identification = 
+
 /* Checks whether an email is valid. If an email is valid changes the text below the 
 email text area to "Valid Email" and turns the text green*/
 function verifyGoodEmail(){
 	if (validateEmail()){
 		validEmail.innerHTML = "Valid Email.";
 		validEmail.style.color = "green";
+	} else {
+		validEmail.innerHTML = "Please enter a valid email address.";
+		validEmail.style.color = "red";
 	}
 }
 
@@ -40,6 +46,9 @@ function verifyGoodPassword(){
 	if (checkPassword()){
 		goodPW.innerHTML = "Valid Password";
 		goodPW.style.color = "green";
+	} else {
+		goodPW.innerHTML = "Requirements: 6-20 characters, one numeric digit, one uppercase, one lowercase.";
+		goodPW.style.color = "red";
 	}
 }
 
@@ -50,6 +59,9 @@ function verifyPasswordsMatch(){
 	if (checkPasswordsMatch()){
 		PWMatch.innerHTML = "Passwords Match";
 		PWMatch.style.color = "green";
+	} else {
+		PWMatch.innerHTML = "Please ensure passwords match.";
+		PWMatch.style.color = "red";
 	}
 }
 
@@ -98,14 +110,13 @@ that the email is valid and that every field is filled in. If something is inval
 an alert is sent to the user to try again and the create account page is reloaded. Otherwise,
 the successful login page is loaded.*/
 function verifyValidSubmission(){
-	
+	event.preventDefault();
 	
 	if (!(checkPasswordsMatch() && validateEmail())||(fname.value == "") || 
 						(lname.value == "") || (id.value == "")){
 		alert("One or more fields has invalid information, please try again");
 	}
 	else {
-		event.preventDefault();
 		writeUserData();
 	}
 }	
@@ -115,13 +126,27 @@ function verifyValidSubmission(){
 
 function writeUserData() {
 	
-	database.collection('users').doc(id.value).set({
-		name: fname.value + " " + lname.value,
-		id: id.value,
-		email: email.value,
-		password: pw.value
-	}).then((snapshot)=>{
-		window.location.href = "Homepage.html";
-	})
+	var data = database.collection('users').doc(id.value);
+	
+	database.runTransaction(function(transaction){
+		transaction.get(data).then(function(doc){
+			if(!doc.exists){
+				data.set({
+					name: fname.value + " " + lname.value,
+					id: id.value,
+					email: email.value,
+					password: pw.value
+					}).then((snapshot)=>{
+					window.location.href = "Homepage.html";
+				})
+			}
+			else{
+				alert("Sorry this user ID is already assigned to another user, please verify that you have entered the correct ID");
+			}
+		})
+	}).catch(function(error) {
+	});
+	
+
   
 }
