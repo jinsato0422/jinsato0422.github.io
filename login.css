@@ -39,6 +39,8 @@ position in space and are the correct width wthin the main form */
 h1{
 	text-align: center;
 	color: white;
+	font-family: "Arial";
+	font-size: 60;
 }
 
 
