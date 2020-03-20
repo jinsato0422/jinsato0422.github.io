@@ -50,6 +50,11 @@ and email boxes */
 	color: red;
 }
 
+#validID{
+	font-size: 10px;
+	color: red;
+}
+
 /* The following stule sets where the return button is located */
 #return{
 	margin-left: 10px;

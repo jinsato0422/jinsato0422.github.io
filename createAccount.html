@@ -32,8 +32,9 @@ run and the page changes to correctPassword.html -->
 	<label for="lname">Last Name:</label><br>
 	<input type="text" id="lname"><br><br>
 	
-	<label for="id">Student ID:</label><br>
-	<input type="text" id="id"><br><br>
+	<label for="id">User ID:</label><br>
+	<input type="text" id="id" oninput = verifyGoodID()><br>
+	<label id = "validID"> Please enter your 8-digit ID number. </label><br><br>
 	
 	<label for="email">Email Address:</label><br>
 	<input type="text" id="email" oninput = verifyGoodEmail()><br>

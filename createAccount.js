@@ -24,8 +24,17 @@ function initiateProgram(){
 }
 
 
-// function verifyGoodID(){
-	// var identification = 
+function verifyGoodID(){
+	if(validateID()){
+		validID.innerHTML = "Valid ID.";
+		console.log(validID);
+		validID.style.color = "green";
+	} else {
+		validID.innerHTML = "Please enter your 8-digit ID number.";
+		validID.style.color = "red";
+	}
+}
+	
 
 /* Checks whether an email is valid. If an email is valid changes the text below the 
 email text area to "Valid Email" and turns the text green*/
@@ -51,6 +60,7 @@ function verifyGoodPassword(){
 		goodPW.style.color = "red";
 	}
 }
+
 
 
 /* Checks whether the two copies of the password match. If passwords match changes the text below the 
@@ -80,8 +90,17 @@ true if password valid otherwise returns false.
 Code adapted from: https://www.w3resource.com/javascript/form/password-validation.php*/
 function checkPassword() 
 { 
-	var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
-	if(pw.value.match(passw))return true;
+	var possiblePassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+	if(pw.value.match(possiblePassword))return true;
+	
+	return false;
+}
+
+
+function validateID(){
+	var possibleID = /^(?=.*\d).{8}$/
+	
+	if(id.value.match(possibleID)) return true;
 	
 	return false;
 }
@@ -92,7 +111,8 @@ otherwise returns false.
 Code adapted from: https://www.w3resource.com/javascript/form/email-validation.php */
 function validateEmail() 
 {
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) return true;
+	var possibleEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+	if (possibleEmail.test(email.value)) return true;
  
  return false;
 }
@@ -105,6 +125,7 @@ function returnToSignIn(){
 }
 
 
+
 /*Verifies whether a submission of the form is valid by checking that the passwords match,
 that the email is valid and that every field is filled in. If something is invalid,
 an alert is sent to the user to try again and the create account page is reloaded. Otherwise,
@@ -112,8 +133,8 @@ the successful login page is loaded.*/
 function verifyValidSubmission(){
 	event.preventDefault();
 	
-	if (!(checkPasswordsMatch() && validateEmail())||(fname.value == "") || 
-						(lname.value == "") || (id.value == "")){
+	if (!(checkPasswordsMatch() && validateEmail() && validateID())||(fname.value == "") || 
+						(lname.value == "")){
 		alert("One or more fields has invalid information, please try again");
 	}
 	else {
