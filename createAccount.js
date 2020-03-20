@@ -6,6 +6,7 @@ var user;
 var pw;
 var verifyPw;
 
+initiateProgram();
 
 
 /*Sets up all the required variables for the program when the page is first loaded. All
@@ -14,10 +15,12 @@ function initiateProgram(){
 	fname = document.getElementById("fname");
 	lname = document.getElementById("lname");
 	id = document.getElementById("id");
-	user = document.getElementById("user");
 	pw = document.getElementById("pw");
 	verifyPw = document.getElementById("trupw");
 	email = document.getElementById("email");
+	
+	 
+
 }
 
 
@@ -95,9 +98,30 @@ that the email is valid and that every field is filled in. If something is inval
 an alert is sent to the user to try again and the create account page is reloaded. Otherwise,
 the successful login page is loaded.*/
 function verifyValidSubmission(){
+	
+	
 	if (!(checkPasswordsMatch() && validateEmail())||(fname.value == "") || 
-						(lname.value == "") || (id.value == "") || (user.value == "")){
-		document.mainform.action = "createAccount.html";
+						(lname.value == "") || (id.value == "")){
 		alert("One or more fields has invalid information, please try again");
 	}
+	else {
+		event.preventDefault();
+		writeUserData();
+	}
 }	
+
+
+
+
+function writeUserData() {
+	
+	database.collection('users').doc(id.value).set({
+		name: fname.value + " " + lname.value,
+		id: id.value,
+		email: email.value,
+		password: pw.value
+	}).then((snapshot)=>{
+		window.location.href = "Homepage.html";
+	})
+  
+}

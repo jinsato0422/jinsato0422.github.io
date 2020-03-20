@@ -5,6 +5,7 @@ var startingTextElements;
 
 var userInformation;
 
+initiateProgram();
 
 /*Begins the program by establishing the essential variables and creating the userInformation
 array */
@@ -15,15 +16,32 @@ function initiateProgram(){
 	textElements = new Array(username, pw);
 	startingTextElements = ["Username", "Password"];
 	
-	userInformation = new Array(
-		{username: "ebrintn", pw: "dog"},
-		{username: "frog", pw: "piano"},
-		{username: "jjrey", pw: "cat"},
-		{username: "leopard", pw: "leopard"}
-	);
+	userInformation = new Array();
+	
+	loadUserInformation();
 
 	
 }
+
+
+function loadUserInformation(){
+	database.collection('users').get().then((snapshot)=>{
+		snapshot.docs.forEach(doc => {
+			addToUserInformation(doc)
+		})
+	})
+}
+
+
+function addToUserInformation(info){
+	var user = {
+		username: info.data().id,
+		pw: info.data().password
+	}
+	
+	userInformation.push(user);
+}
+	
 
 /* Ensures that a given username aligns to a given password, sends an error 
 message and rejects password if incorrect */
@@ -33,6 +51,7 @@ function verifyPassword(){
 		document.mainform.action = "login.html";
 		alert("Sorry you entered an incorrect username or password, please try again");
 	}
+	
 }
 
 

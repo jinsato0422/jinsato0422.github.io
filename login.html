@@ -4,7 +4,13 @@
 <header><title> U of S Scholarships </title> </header>
 <head>
 <link rel="stylesheet" href="login.css">
-<script src="login.js"></script>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+
+
 </head>
 
 <br><br>
@@ -13,21 +19,40 @@
 
 <br><br>
 <!-- When the program page is loaded the initiateProgram() command is run -->
-<body onload = initiateProgram()>
+<body>
 
 
-<!-- The main form of the page that has all of the fields required for the user to login. Fields include an area fro a username,
-an area for a password and several buttons that redirect to other pages, including a submit button. When the submit button is pressed
-the verifyPassword() comman in the javascript controller is run and the page is redirected to the correctPassword page, a page that 
-will eventually be changed to the main login area -->
-<form name = "mainform" id = "mainform" onsubmit = "verifyPassword()" action = "Homepage.html" accept-charset="UTF-8" method="post">
-	<input type="text" id="user" name="user" placeholder = "Username"><br><br>
-	<input type="password" id="pw" placeholder = "Password"><br><br>
-	<input type="submit" id="sign_in" value = "Sign in" ><br><br><br>
-	<input type="button" id = "forgot" value = "Forgot Password" onclick = forgotPassword()>
-	<input type="button" id = "new_account" value = "Create an Account" onclick = newAccount()>
-</form>
+	<!-- The main form of the page that has all of the fields required for the user to login. Fields include an area fro a username,
+	an area for a password and several buttons that redirect to other pages, including a submit button. When the submit button is pressed
+	the verifyPassword() comman in the javascript controller is run and the page is redirected to the correctPassword page, a page that 
+	will eventually be changed to the main login area -->
+	<form name = "mainform" id = "mainform" onsubmit = "verifyPassword()" action = "Homepage.html" accept-charset="UTF-8" method="post">
+		<input type="text" id="user" name="user" placeholder = "Student ID"><br><br>
+		<input type="password" id="pw" placeholder = "Password"><br><br>
+		<input type="submit" id="sign_in" value = "Sign in" ><br><br><br>
+		<input type="button" id = "forgot" value = "Forgot Password" onclick = forgotPassword()>
+		<input type="button" id = "new_account" value = "Create an Account" onclick = newAccount()>
+	</form>
 
+
+	<script>
+	  // Your web app's Firebase configuration
+		  var firebaseConfig = {
+			apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
+			authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
+			databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
+			projectId: "scholarshipdatabase-a4ba6",
+			storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
+			messagingSenderId: "664316210117",
+			appId: "1:664316210117:web:2323f7fc7c7b18ee31b9ac",
+			measurementId: "G-QS6ZN8MCKM"
+		  };
+		  // Initialize Firebase
+		  firebase.initializeApp(firebaseConfig);
+		  const database = firebase.firestore();
+	</script>
+	
+	<script src="login.js"></script>
 </body>
 </html>
 
