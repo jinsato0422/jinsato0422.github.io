@@ -24,86 +24,51 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 const scholarshipList = document.querySelector('#scholarship-list');
 
-{
-    /* <div class="col-sm">
-            <div class="jumbotron">
-                <div class="container">
-            <div class="row">
-            2 of 2
-        </div>
-        <div class="row">
-            3 of 3
-        </div>
-    </div>
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead">asdasd</p>
-                <hr class="my-4">
-                <p> asdasdasdasd</p>
-                <p class="lead">
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                </p>
-            </div> 
-        </div>
-     */
-}
-
-{
-    /* 
-            <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
-            </p>
-            <div id="multiCollapseExample1">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-            </div>
-        */
-}
-
-
-{
-    /* <div class="panel-heading"><a href="url">National Geophysics Scholarship</a></div>
-                <b><div class="scholarshipInfo">$1,000</div></b>
-                <div class="scholarshipInfo">Duration: Year</div>
-                <div class="scholarshipInfo">Field of Study: Nation-wide</div>
-                <div class="scholarshipInfo">Number available: 1</div> */
-}
-
-{
-    /* <div class="container">
-      <div class="row">
-        <div class="col">
-          2 of 2
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          3 of 3
-        </div>
-      </div>
-    </div> */
-}
-
 function render(doc) {
     let mainGrid = document.createElement('div')
-    mainGrid.classList.add("col-xl-4");
+    mainGrid.classList.add("col-xl-6");
+    // mainGrid.classList.add("panel-body")
+
+    // let subGrid = document.createElement('div')
+    // subGrid.classList.add("col-xl-4");
+
     // mainGrid.classList.add("mb-4");
 
     let scholarship = document.createElement('div');
-    scholarship.classList.add("jumbotron");
+    scholarship.classList.add("card");
+    scholarship.classList.add("xs-success")
+        // scholarship.classList.add("panel-default")
+        // scholarship.classList.add("rounded")
 
-    let name = document.createElement('h5');
-    // name.classList.add("panel-heading")
-    let value = document.createElement('p');
-    let deadline = document.createElement('p');
-    let description = document.createElement('p');
+    let nameDiv = document.createElement('div');
+    nameDiv.classList.add("card-header")
+
+    let group = document.createElement('div');
+    group.classList.add("card-body")
+    let name = document.createElement('a');
+    name.setAttribute("href", "url")
+    let value = document.createElement('div');
+    value.classList.add("scholarshipInfo");
+    let deadline = document.createElement('div');
+    deadline.classList.add("scholarshipInfo");
+    let description = document.createElement('div');
+    description.classList.add("scholarshipInfo");
 
     let hideAdditionalContent = document.createElement('div');
-    let category = document.createElement('p');
-    let offered = document.createElement('p');
-    let provider = document.createElement('p');
-    let courseLoad = document.createElement('p');
-    let fieldOfStudy = document.createElement('p');
-    let levelOfStudy = document.createElement('p');
-    let numberAvailable = document.createElement('p');
+    let category = document.createElement('div');
+    category.classList.add("scholarshipInfo");
+    let offered = document.createElement('div');
+    offered.classList.add("scholarshipInfo");
+    let provider = document.createElement('div');
+    provider.classList.add("scholarshipInfo");
+    let courseLoad = document.createElement('div');
+    courseLoad.classList.add("scholarshipInfo");
+    let fieldOfStudy = document.createElement('div');
+    fieldOfStudy.classList.add("scholarshipInfo");
+    let levelOfStudy = document.createElement('div');
+    levelOfStudy.classList.add("scholarshipInfo");
+    let numberAvailable = document.createElement('div');
+    numberAvailable.classList.add("scholarshipInfo");
 
     categoryTextContent = "Category: " + doc.data()['category'];
     nameTextContent = doc.data()['name'];
@@ -132,7 +97,7 @@ function render(doc) {
     learnMoreButton.style.color = "white";
     learnMoreButton.classList.add("btn");
     learnMoreButton.classList.add("btn-primary");
-    learnMoreButton.classList.add("btn-lg");
+    learnMoreButton.classList.add("btn-md");
     learnMoreButton.setAttribute("data-toggle", "collapse")
     learnMoreButton.setAttribute("aria-expanded", "false")
     learnMoreButton.setAttribute("aria-controls", docID)
@@ -154,12 +119,16 @@ function render(doc) {
     levelOfStudy.textContent = levelOfStudyTextContent;
     numberAvailable.textContent = numberAvailableTextContent;
 
+    // mainGrid.appendChild(subGrid)
+
+    // subGrid.appendChild(scholarship)
     mainGrid.appendChild(scholarship)
 
-    scholarship.appendChild(name);
-    scholarship.appendChild(value);
-    scholarship.appendChild(deadline);
-    scholarship.appendChild(numberAvailable);
+    nameDiv.appendChild(name)
+    scholarship.appendChild(nameDiv);
+    group.appendChild(value);
+    group.appendChild(deadline);
+    group.appendChild(numberAvailable);
 
     hideAdditionalContent.appendChild(border);
     hideAdditionalContent.appendChild(category);
@@ -170,9 +139,11 @@ function render(doc) {
     hideAdditionalContent.appendChild(levelOfStudy);
     hideAdditionalContent.appendChild(description);
 
-    scholarship.appendChild(learnMoreButton);
+    group.appendChild(learnMoreButton);
 
-    scholarship.appendChild(hideAdditionalContent)
+    group.appendChild(hideAdditionalContent);
+
+    scholarship.appendChild(group);
 
     scholarshipList.appendChild(mainGrid);
 }

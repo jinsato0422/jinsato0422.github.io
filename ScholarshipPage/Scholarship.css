@@ -1,25 +1,63 @@
-    h5 {
-        background-color: #69E23C;
+body {
+    font-size: 14px;
+}
+
+h1 {
+    /* background-color: #69E23C;
         text-align: center;
-        padding: 20px;
-        font-size: 15px;
-    }
-    
-    .jumbotron {
-        border-color: #69E23C;
-        border-width: 1px;
-        border-style: solid;
-        padding: 0;
-        margin-top: 2em;
-        /* height: 20em; */
-        /* max-height: 1400px; */
-    }
-    
-    p {
-        margin: 15px;
-    }
-    
-    .btn {
-        margin-left: 15px;
-        margin-bottom: 15px;
-    }
+        padding: 20px; */
+    font-size: 4em;
+}
+
+h6 {
+    padding: 10px;
+}
+
+p {
+    font-size: 1.5em;
+    margin: 15px;
+}
+
+.btn {
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+div.scholarshipInfo {
+    line-height: 2;
+    padding-left: 15px;
+    /* padding-top: 5px;
+    padding-bottom: 5px; */
+}
+
+dd#checkboxes label input {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 0px
+}
+
+.jumbotron {
+    background-color: #69E23C;
+}
+
+.card {
+    margin: 5px;
+}
+
+.card-header {
+    background-color: #1D8348;
+    color: white;
+}
+
+.card-body {
+    padding: 0;
+}
+
+a {
+    color: white;
+}

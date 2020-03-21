@@ -14,54 +14,82 @@
     <link rel="stylesheet" href="Scholarship.css">
 </head>
 
-
-
 <body>
-
+    <div class="jumbotron text-center">
+        <h1>Awards Overview</h1>
+        <p>Check which awards you can apply for!</p>
+    </div>
 
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">JJREY's Scholarship</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Apply</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Featured Scholarship
-                  </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">National Wide</a>
-                            <a class="dropdown-item" href="#">University Wide</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Specific to Faculty</a>
-                        </div>
-                    </li>
-                    <!-- <li class="nav-item">
-                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li> -->
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for Scholarship" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+        <div class="row">
+            <div class="col-xl-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Filter</h5>
+                    </div>
+
+                    <div class="card-body">
+                        <i><h6>Scholarship Type</h6></i>
+                    </div>
+
+                    <dd id="checkboxes">
+                        <b>
+                        <label for="checkbox1">
+                        <input type="checkbox" id="checkbox1" name="checkbox1" value="department-specific">
+                        Department-specific
+                        <label for="checkbox2">
+                        <input type="checkbox" id="checkbox2" name="checkbox2" value="department-wide">
+                        Department-wide
+                        <label for="checkbox3">
+                        <input type="checkbox" id="checkbox3" name="checkbox3" value="faculty-specific">
+                        Faculty-specific
+                        <label for="checkbox4">
+                        <input type="checkbox" id="checkbox4" name="checkbox4" value="faculty-wide">
+                        Faculty-wide
+                    </b>
+                    </dd>
+
+                    <hr class="my-3">
+
+                    <div class="card-body">
+                        <i><h6>Applicant Type</h6></i>
+                    </div>
+
+                    <dd id="checkboxes">
+                        <b>
+                        <label for="checkbox5">
+                        <input type="checkbox" id="checkbox5" name="checkbox5" value="undergraduate student">
+                        Undergraduate Student
+                        <label for="checkbox6">
+                        <input type="checkbox" id="checkbox6" name="checkbox6" value="master's student">
+                        Master's Student
+                        <label for="checkbox7">
+                        <input type="checkbox" id="checkbox7" name="checkbox7" value="PhD candidate">
+                        PhD Candidate
+                        <label for="checkbox8">
+                        <input type="checkbox" id="checkbox8" name="checkbox8" value="postdoctoral researcher">
+                        Postdoctoral Researcher
+                    </b>
+                    </dd>
+
+                </div>
             </div>
-        </nav>
+
+            <div class="col-xl-9">
+                <div id="scholarship-list" class="row"></div>
+            </div>
+
+
+        </div>
+
     </div>
 
 
 
-    <div class="container">
-        <div id=scholarship-list class="row"></div>
-    </div>
+    <!-- <div class="container">
+            <div id=scholarship-list class="row">
+    </div> -->
 
 
     <!-- Optional JavaScript -->
