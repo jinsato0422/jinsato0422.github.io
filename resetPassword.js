@@ -5,6 +5,9 @@ var id;
 
 initiateProgram();
 
+/*Sets up all variables for the program. The queryString holds the users ID. It is set by looking at the 
+commands attached to the html command. Essentially, the password reset for the user is set based on how the command
+is called. Substringing of the query removes a ? from the query */
 function initiateProgram(){
 	pw = document.getElementById("password");
 	verifyPw = document.getElementById("checkPassword");
@@ -13,6 +16,8 @@ function initiateProgram(){
 	id = queryString;
 }
 
+/*Changes a users password in the Firebase Database from its previous password to teh new password given 
+by the user. The user is then alerted of the password change and the page is redirected to the login page*/
 function changePassword(){
 	console.log(id);
 	database.collection('users').doc(id).update({
@@ -69,7 +74,10 @@ function checkPassword()
 	return false;
 }
 
-
+/*Calls all the functionality to reset the password. First makes sure the password given by the user is 
+valid and if the password is valid, calls the changePassword method. The event.preventDefault command 
+stops the page from reloading due to pressing the submit button. If the password is invalid the user
+is alerted and the page is reloaded. */
 function resetPassword(){
 	if (checkPassword() && checkPasswordsMatch()){
 		event.preventDefault();

@@ -24,6 +24,8 @@ function initiateProgram(){
 }
 
 
+/* Checks whether an ID is valid. If an email is valid changes the text below the 
+email text area to "Valid ID" and turns the text green*/
 function verifyGoodID(){
 	if(validateID()){
 		validID.innerHTML = "Valid ID.";
@@ -97,6 +99,8 @@ function checkPassword()
 }
 
 
+/*Checks whether an ID is 8 characters long and only contains numbers. Returns true if an ID contains 
+appropriate characters and is 8 characters long. Otherwise, returns falsee.*/
 function validateID(){
 	var possibleID = /^(?=.*\d).{8}$/
 	
@@ -127,7 +131,7 @@ function returnToSignIn(){
 
 
 /*Verifies whether a submission of the form is valid by checking that the passwords match,
-that the email is valid and that every field is filled in. If something is invalid,
+that the email is valid, the ID is valid and that every field is filled in. If something is invalid,
 an alert is sent to the user to try again and the create account page is reloaded. Otherwise,
 the successful login page is loaded.*/
 function verifyValidSubmission(){
@@ -144,7 +148,11 @@ function verifyValidSubmission(){
 
 
 
-
+/* Writes the account infomation for a new account if an account linked to the users ID value does not exist.
+If this account is created, a notification is given to the user and the user is redirected to the login page.
+If the account linked to the user's given ID number already exists, then the user is alerted that the given
+ID has been already selected and they need to get a new ID. These commands are completed by accessing given
+Firebase commands. */
 function writeUserData() {
 	
 	var data = database.collection('users').doc(id.value);
@@ -158,7 +166,8 @@ function writeUserData() {
 					email: email.value,
 					password: pw.value
 					}).then((snapshot)=>{
-					window.location.href = "Homepage.html";
+					alert("Account created. You will now be redirected to the login page");
+					window.location.href = "login.html";
 				})
 			}
 			else{

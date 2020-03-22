@@ -6,17 +6,15 @@ Sets the header to U of S Scholarships -->
 <head>
 <link rel="stylesheet" href="createAccount.css">
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK given by Firebase which allows for access to Firebase -->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!--An additional Firebase JS SDK given by Firebase which helps us access the Firebase commands-->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
   
 </head>
 
 <br><br>
 
-
-<!-- When the program page is loaded the initiateProgram() command is run -->
 <body>
 
 
@@ -55,7 +53,7 @@ run and the page changes to correctPassword.html -->
 
 
 	<script>
-	  // Your web app's Firebase configuration
+	  // Our Firebase configuration given by Firebase
 		  var firebaseConfig = {
 			apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
 			authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
@@ -71,6 +69,8 @@ run and the page changes to correctPassword.html -->
 		  const database = firebase.firestore();
 	</script>
 	
+	
+	<!-- The script that controls the page -->
 	<script src = "createAccount.js"></script>
 
 
