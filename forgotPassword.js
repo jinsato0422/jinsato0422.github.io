@@ -1,5 +1,6 @@
 var email;
 var userInfo = null;
+var emailText;
 
 initiateProgram();
 
@@ -18,13 +19,14 @@ function retrieveAccountInformation(){
 /*Sends an alert to the user saying an email has been sent to their email address */
 function sendEmail(){
 	
-	var emailText = "passwordReset.html"
+
+	setEmailText();
 	
 	Email.send({
 		SecureToken : "ea494848-e3e2-4607-a7bc-17103bbc8aa1",
 		To : email.value,
 		From : "scholarships@jjreyconsulting.xyz",
-		Subject : "Hello",
+		Subject : "Password Request for U of S Scholarships",
 		Body : emailText
 	}).then(function(){
 		alert("An email has been sent to " + email.value + " with your login information.");
@@ -55,4 +57,19 @@ function findUser(){
 			sendEmail();
 		}
 	})
+}
+
+
+function setEmailText(){
+	var docLocation = document.location;
+	docLocation = docLocation.toString();
+	var placeToTrim = docLocation.search("forgotPassword.html");
+	docLocation = docLocation.substring(0,placeToTrim);
+	docLocation = docLocation + "resetPassword.html?" +userInfo.data().id;
+	
+	
+	emailText = "Hi "+ userInfo.data().name + ", <br> We recieved a request"+
+		" to reset your password on the University of Saskatchewan Scholarships page. We are here to help! <br> If you made this" +
+		" request, simply click on the link to reset your password: " + docLocation + " <br> If you did not" +
+		" make this request, you may ignore this email. Your personal information is safe with us!";
 }
