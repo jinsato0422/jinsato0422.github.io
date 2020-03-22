@@ -1,5 +1,10 @@
 
 /* The following styles set where the text boxes are located in the createAccount page */
+
+body{
+	background-color: #2eff70;
+}
+
 h1{
 	text-align: center;
 }
@@ -67,4 +72,9 @@ form{
   width: 350px;
   margin-left: auto;
   margin-right: auto;
+  background-color: white;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 10px;
+  border: 5px solid black;
 }

@@ -17,7 +17,20 @@ function retrieveAccountInformation(){
 
 /*Sends an alert to the user saying an email has been sent to their email address */
 function sendEmail(){
-	alert("An email has been sent to " + email.value + " with your login information.");
+	
+	var emailText = "passwordReset.html"
+	
+	Email.send({
+		SecureToken : "ea494848-e3e2-4607-a7bc-17103bbc8aa1",
+		To : email.value,
+		From : "scholarships@jjreyconsulting.xyz",
+		Subject : "Hello",
+		Body : emailText
+	}).then(function(){
+		alert("An email has been sent to " + email.value + " with your login information.");
+		window.location.href = "login.html";
+	});
+
 }
 
 function returnToMain(){
