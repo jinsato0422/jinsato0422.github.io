@@ -5,9 +5,9 @@
 <head>
 <link rel="stylesheet" href="login.css">
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK - used to connect to the firebase. Code given by firebase -->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- Additional Firebase JS SDK used to get information from the firebase -->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
 
 
@@ -15,9 +15,8 @@
 
 <br><br>
 <!-- Sets the main header of the page to the text within the h1 brackets -->
-<h1> University of Saskatchewan Scholarship System </h1>
+<h1> University of Saskatchewan <br> Scholarship System </h1>
 
-<br><br>
 <!-- When the program page is loaded the initiateProgram() command is run -->
 <body>
 
@@ -27,7 +26,7 @@
 	the verifyPassword() comman in the javascript controller is run and the page is redirected to the correctPassword page, a page that 
 	will eventually be changed to the main login area -->
 	<form name = "mainform" id = "mainform" onsubmit = "verifyPassword()" action = "Homepage.html" accept-charset="UTF-8" method="post">
-		<input type="text" id="user" name="user" placeholder = "Student ID"><br><br>
+		<input type="text" id="user" name="user" placeholder = "User ID"><br><br>
 		<input type="password" id="pw" placeholder = "Password"><br><br>
 		<input type="submit" id="sign_in" value = "Sign in" ><br><br><br>
 		<input type="button" id = "forgot" value = "Forgot Password" onclick = forgotPassword()>
@@ -36,7 +35,7 @@
 
 
 	<script>
-	  // Your web app's Firebase configuration
+	  // Our app's Firebase configuration - given by Firebase
 		  var firebaseConfig = {
 			apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
 			authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
@@ -52,6 +51,7 @@
 		  const database = firebase.firestore();
 	</script>
 	
+	<!-- Script used to run all the commands required for the login page -->
 	<script src="login.js"></script>
 </body>
 </html>
