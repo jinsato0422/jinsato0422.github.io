@@ -29,13 +29,10 @@ JJRey Scholarship System:
        This page is a template for the form to add new scholarships to the system for the Scholarship Coordinator.
        This page currently has minimal functionality.
     5. ScholarshipPage.html
-       This file's style is based on the AwardsOverview.html 
        This page is for viewing all the available scholarships for all students. 
        This page includes the filter box and all the scholarships. 
        The filter box has no functionality yet.
        Each scholarships are structured in a box shape, which includes a short description 
-       and below there will be a "Learn More" button. When this button is pressed it toggles the hidden content of each box 
+       and below there will be a "Learn More" button. This button toggles the hidden content of each box 
        which includes more information about the scholarships. 
        Also, this page is linked to the Firebase database, which will automatically make the boxes for each scholarships in the database    
-       
-       

@@ -1,48 +1,46 @@
 <!-- Sets up CSS style sheet using Bootstrap -->
 <!DOCTYPE html>
 <html lang="en">
+<title>Award System Overview Webpage</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<head>
-    <title>Award System Overview Webpage</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- adds appropriate padding so text and checkboxes aren't against the borders of the boxes -->
-    <style>
-        div.scholarshipInfo {
-            line-height: 2;
-            padding-left: 15px;
-        }
-        
-        dd#checkboxes label input {
-            margin-left: 15px;
-            margin-right: 5px;
-        }
-        
-        hr {
-            margin-top: 5px;
-            margin-bottom: 0px
-        }
-        /*Defines colour of title header*/
-        
-        .jumbotron {
-            background-color: #69E23C;
-        }
-        /*Defines colour of each panel header*/
-        
-        .panel>.panel-heading {
-            background-color: #1D8348;
-            color: white;
-        }
-        /*Changes colour of URL text*/
-        
-        a {
-            color: white;
-        }
-    </style>
+<!-- adds appropriate padding so text and checkboxes aren't against the borders of the boxes -->
+<style>
+    div.scholarshipInfo {
+        line-height: 2;
+        padding-left: 15px;
+    }
+    
+    dd#checkboxes label input {
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+    
+    hr {
+        margin-top: 5px;
+        margin-bottom: 0px
+    }
+    /*Defines colour of title header*/
+    
+    .jumbotron {
+        background-color: #69E23C;
+    }
+    /*Defines colour of each panel header*/
+    
+    .panel>.panel-heading {
+        background-color: #1D8348;
+        color: white;
+    }
+    /*Changes colour of URL text*/
+    
+    a {
+        color: white;
+    }
+</style>
 </head>
 
 <!-- Creates title header -->
@@ -67,6 +65,7 @@
                     <!-- Creates the checkboxes and labels for each scholarship type -->
                     <dd id="checkboxes">
                         <label for="checkbox1">
+
                 <input type="checkbox" id="checkbox1" name="checkbox1" value="department-specific">
                 Department-specific
               <label for="checkbox2">
