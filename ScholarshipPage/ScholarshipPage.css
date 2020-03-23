@@ -3,9 +3,6 @@ body {
 }
 
 h1 {
-    /* background-color: #69E23C;
-        text-align: center;
-        padding: 20px; */
     font-size: 4em;
 }
 
@@ -27,8 +24,6 @@ p {
 div.scholarshipInfo {
     line-height: 2;
     padding-left: 15px;
-    /* padding-top: 5px;
-    padding-bottom: 5px; */
 }
 
 dd#checkboxes label input {

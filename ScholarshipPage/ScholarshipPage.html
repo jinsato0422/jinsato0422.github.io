@@ -11,17 +11,19 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="Scholarship.css">
+    <!-- The css for Scholarship Page -->
+    <link rel="stylesheet" href="ScholarshipPage.css">
 </head>
 
 <body>
+    <!-- This is the Title and sub header of the page  -->
     <div class="jumbotron text-center">
         <h1>Awards Overview</h1>
         <p>Check which awards you can apply for!</p>
     </div>
 
+    <!-- This is the filter box -->
     <div class="container">
-
         <div class="row">
             <div class="col-xl-3">
                 <div class="card">
@@ -32,65 +34,55 @@
                     <div class="card-body">
                         <i><h6>Scholarship Type</h6></i>
                     </div>
-
+                    <!-- Creates the checkboxes and labels for each scholarship type -->
                     <dd id="checkboxes">
                         <b>
-                        <label for="checkbox1">
-                        <input type="checkbox" id="checkbox1" name="checkbox1" value="department-specific">
-                        Department-specific
-                        <label for="checkbox2">
-                        <input type="checkbox" id="checkbox2" name="checkbox2" value="department-wide">
-                        Department-wide
-                        <label for="checkbox3">
-                        <input type="checkbox" id="checkbox3" name="checkbox3" value="faculty-specific">
-                        Faculty-specific
-                        <label for="checkbox4">
-                        <input type="checkbox" id="checkbox4" name="checkbox4" value="faculty-wide">
-                        Faculty-wide
-                    </b>
+                            <label for="checkbox1">
+                            <input type="checkbox" id="checkbox1" name="checkbox1" value="department-specific">
+                            Department-specific
+                            <label for="checkbox2">
+                            <input type="checkbox" id="checkbox2" name="checkbox2" value="department-wide">
+                            Department-wide
+                            <label for="checkbox3">
+                            <input type="checkbox" id="checkbox3" name="checkbox3" value="faculty-specific">
+                            Faculty-specific
+                            <label for="checkbox4">
+                            <input type="checkbox" id="checkbox4" name="checkbox4" value="faculty-wide">
+                            Faculty-wide
+                        </b>
                     </dd>
-
+                    <!-- Creates midline divider -->
                     <hr class="my-3">
 
                     <div class="card-body">
                         <i><h6>Applicant Type</h6></i>
                     </div>
-
+                    <!-- Creates the checkboxes and labels for each applicant type -->
                     <dd id="checkboxes">
                         <b>
-                        <label for="checkbox5">
-                        <input type="checkbox" id="checkbox5" name="checkbox5" value="undergraduate student">
-                        Undergraduate Student
-                        <label for="checkbox6">
-                        <input type="checkbox" id="checkbox6" name="checkbox6" value="master's student">
-                        Master's Student
-                        <label for="checkbox7">
-                        <input type="checkbox" id="checkbox7" name="checkbox7" value="PhD candidate">
-                        PhD Candidate
-                        <label for="checkbox8">
-                        <input type="checkbox" id="checkbox8" name="checkbox8" value="postdoctoral researcher">
-                        Postdoctoral Researcher
-                    </b>
+                            <label for="checkbox5">
+                            <input type="checkbox" id="checkbox5" name="checkbox5" value="undergraduate student">
+                            Undergraduate Student
+                            <label for="checkbox6">
+                            <input type="checkbox" id="checkbox6" name="checkbox6" value="master's student">
+                            Master's Student
+                            <label for="checkbox7">
+                            <input type="checkbox" id="checkbox7" name="checkbox7" value="PhD candidate">
+                            PhD Candidate
+                            <label for="checkbox8">
+                            <input type="checkbox" id="checkbox8" name="checkbox8" value="postdoctoral researcher">
+                            Postdoctoral Researcher
+                        </b>
                     </dd>
-
                 </div>
             </div>
 
+            <!-- This is the boxes for scholarships  -->
             <div class="col-xl-9">
                 <div id="scholarship-list" class="row"></div>
             </div>
-
-
         </div>
-
     </div>
-
-
-
-    <!-- <div class="container">
-            <div id=scholarship-list class="row">
-    </div> -->
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -109,11 +101,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
 
-    <!-- <script src="/__/firebase/7.11.0/firebase-app.js"></script>
-    <script src="/__/firebase/7.11.0/firebase-database.js"></script>
-    <script src="/__/firebase/7.11.0/firebase-analytics.js"></script> -->
 
-    <script src="Scholarship.js"></script>
+    <script src="ScholarshipPage.js"></script>
 </body>
 
 </html>

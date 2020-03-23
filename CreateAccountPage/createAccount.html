@@ -6,19 +6,15 @@ Sets the header to U of S Scholarships -->
 <head>
 <link rel="stylesheet" href="createAccount.css">
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- The core Firebase JS SDK given by Firebase which allows for access to Firebase -->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+<!--An additional Firebase JS SDK given by Firebase which helps us access the Firebase commands-->
 <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
   
 </head>
 
 <br><br>
 
-<!-- Title for the page is account registration -->
-<h1> U of S Scholarships Account Registration </h1>
-
-<!-- When the program page is loaded the initiateProgram() command is run -->
 <body>
 
 
@@ -26,14 +22,18 @@ Sets the header to U of S Scholarships -->
 all required information. When the form is submitted the verifyValidSubmission() command is
 run and the page changes to correctPassword.html -->
 <form name = "mainform" id = "mainform" onsubmit = verifyValidSubmission()>
+	<!-- Title for the page is account registration -->
+	<h1> U of S Scholarships Account Registration </h1>
+
 	<label for="fname">First Name:</label><br>
 	<input type="text" id="fname"><br><br>
 	
 	<label for="lname">Last Name:</label><br>
 	<input type="text" id="lname"><br><br>
 	
-	<label for="id">Student ID:</label><br>
-	<input type="text" id="id"><br><br>
+	<label for="id">User ID:</label><br>
+	<input type="text" id="id" oninput = verifyGoodID()><br>
+	<label id = "validID"> Please enter your 8-digit ID number. </label><br><br>
 	
 	<label for="email">Email Address:</label><br>
 	<input type="text" id="email" oninput = verifyGoodEmail()><br>
@@ -53,7 +53,7 @@ run and the page changes to correctPassword.html -->
 
 
 	<script>
-	  // Your web app's Firebase configuration
+	  // Our Firebase configuration given by Firebase
 		  var firebaseConfig = {
 			apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
 			authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
@@ -69,6 +69,8 @@ run and the page changes to correctPassword.html -->
 		  const database = firebase.firestore();
 	</script>
 	
+	
+	<!-- The script that controls the page -->
 	<script src = "createAccount.js"></script>
 
 

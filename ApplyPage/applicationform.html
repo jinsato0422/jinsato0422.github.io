@@ -9,6 +9,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <head>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
     <!--Sets the title of the page-->
     <title> Application Form </title>
     <!--Describes the page and code-->
@@ -235,8 +237,8 @@
     <h1>APPLICATION FORM</h1>
 
     <!--Starts of the form-->
-    <form>
-        <form action="mailto:joweria.ekram1@ucalgary.ca" method="post" enctype="text/plain">
+    <form id="application-form">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend></legend>
                 <!--applies the paragraph style setting to form-->
@@ -279,11 +281,11 @@
                     </select><br>
 
                     <!--Label and input for grades information-->
-                    <label for="grades" class="label grades" style="padding: 8px 20px">Does your transcript have a grade of B or lower?</label>&nbsp&nbsp
+                    <label for="grades" class="label grades" style="padding: 8px 20px">Your transcript does not have a grade of B or lower.</label>&nbsp&nbsp
                     <select id="grades" name="grades">
                         <option value = "empty"></option>
-                        <option value = "no">No</option>
-                        <option value = "yes">Yes</option>
+                        <option value = "true">True</option>
+                        <option value = "false">False</option>
                     </select><br>
                     <br>
 
@@ -300,12 +302,40 @@
                     <br>
 
                     <!--Input for submitting form-->
-                    <input type="submit" value=Submit>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value=Submit name="submit">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                 </p>
             </fieldset>
         </form>
         <!--End of form-->
 
 </body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
+        authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
+        databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
+        projectId: "scholarshipdatabase-a4ba6",
+        storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
+        messagingSenderId: "664316210117",
+        appId: "1:664316210117:web:2323f7fc7c7b18ee31b9ac",
+        measurementId: "G-QS6ZN8MCKM"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const db = firebase.firestore();
+    db.settings({
+        timestampsInSnapshots: true
+    })
+</script>
+
+<script src="applicationform.js"></script>
 
 </html>

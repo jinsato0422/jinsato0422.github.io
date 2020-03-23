@@ -1,12 +1,4 @@
-// // Initialize Cloud Firestore through Firebase
-// firebase.initializeApp({
-//     apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
-//     authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
-//     projectId: "scholarshipdatabase-a4ba6"
-// });
-
-
-
+// Configuration for the Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
     authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
@@ -20,29 +12,31 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-//Get element
+//Get the database
 var db = firebase.firestore();
 const scholarshipList = document.querySelector('#scholarship-list');
 
+// This retrieves the scholarship data from Firebase
+db.collection("Scholarship Database").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        render(doc)
+        console.log(doc.id.replace(/\s/g, '')) // debug purpose
+    });
+});
+
+// This is the function for creating the boxes for each scholarships
 function render(doc) {
     let mainGrid = document.createElement('div')
     mainGrid.classList.add("col-xl-6");
-    // mainGrid.classList.add("panel-body")
-
-    // let subGrid = document.createElement('div')
-    // subGrid.classList.add("col-xl-4");
-
-    // mainGrid.classList.add("mb-4");
 
     let scholarship = document.createElement('div');
     scholarship.classList.add("card");
     scholarship.classList.add("xs-success")
-        // scholarship.classList.add("panel-default")
-        // scholarship.classList.add("rounded")
+    scholarship.setAttribute('data-id', toString(doc.id));
 
+    // These are creating structure for the shown descriptions of the scholarships
     let nameDiv = document.createElement('div');
     nameDiv.classList.add("card-header")
-
     let group = document.createElement('div');
     group.classList.add("card-body")
     let name = document.createElement('a');
@@ -51,9 +45,14 @@ function render(doc) {
     value.classList.add("scholarshipInfo");
     let deadline = document.createElement('div');
     deadline.classList.add("scholarshipInfo");
-    let description = document.createElement('div');
-    description.classList.add("scholarshipInfo");
+    let numberAvailable = document.createElement('div');
+    numberAvailable.classList.add("scholarshipInfo");
 
+    //Border for dividing the shown descriptions and the hidden descriptions
+    let border = document.createElement('hr');
+    border.classList.add("my-4");
+
+    // These are creating structure for the hidden descriptions of the scholarships
     let hideAdditionalContent = document.createElement('div');
     let category = document.createElement('div');
     category.classList.add("scholarshipInfo");
@@ -67,31 +66,30 @@ function render(doc) {
     fieldOfStudy.classList.add("scholarshipInfo");
     let levelOfStudy = document.createElement('div');
     levelOfStudy.classList.add("scholarshipInfo");
-    let numberAvailable = document.createElement('div');
-    numberAvailable.classList.add("scholarshipInfo");
+    let description = document.createElement('div');
+    description.classList.add("scholarshipInfo");
 
-    categoryTextContent = "Category: " + doc.data()['category'];
-    nameTextContent = doc.data()['name'];
-    deadlineTextContent = "Deadline: " + doc.data()['deadline'];
-    descriptionTextContent = "Description: " + doc.data()['description'];
-    offeredTextContent = "Offered: " + doc.data()['offered'];
-    providerTextContent = "Provider: " + doc.data()['provider'];
-    valueTextContent = "$" + doc.data()['value'];
-    courseLoadTextContent = "Course Load: " + doc.data()['courseLoad'];
-    fieldOfStudyTextContent = "Field of Study: " + doc.data()['fieldOfStudy'];
-    levelOfStudyTextContent = "Level of Study: " + doc.data()['levelOfStudy'];
-    numberAvailableTextContent = "Number Available: " + doc.data()['numberAvailable'];
+    // These are retrieving each description of the scholarships 
+    var categoryTextContent = "Category: " + doc.data()['category'];
+    var nameTextContent = doc.data()['name'];
+    var deadlineTextContent = "Deadline: " + doc.data()['deadline'];
+    var descriptionTextContent = "Description: " + doc.data()['description'];
+    var offeredTextContent = "Offered: " + doc.data()['offered'];
+    var providerTextContent = "Provider: " + doc.data()['provider'];
+    var valueTextContent = "$" + doc.data()['value'];
+    var courseLoadTextContent = "Course Load: " + doc.data()['courseLoad'];
+    var fieldOfStudyTextContent = "Field of Study: " + doc.data()['fieldOfStudy'];
+    var levelOfStudyTextContent = "Level of Study: " + doc.data()['levelOfStudy'];
+    var numberAvailableTextContent = "Number Available: " + doc.data()['numberAvailable'];
 
+    // This is setting each hidden content and Learn More button a unique ID 
+    // so that when the Learn More button is pressed it toggles the correct hidden content 
     var docID = nameTextContent.replace(/\s/g, '')
 
     hideAdditionalContent.setAttribute("id", docID)
     hideAdditionalContent.classList.add("collapse")
 
-    //Border
-    let border = document.createElement('hr');
-    border.classList.add("my-4");
-
-    // //Create button 
+    //Creates the Learn More button 
     let learnMoreButton = document.createElement('a');
     learnMoreButton.innerHTML = "Learn More";
     learnMoreButton.style.color = "white";
@@ -104,9 +102,7 @@ function render(doc) {
     learnMoreButton.setAttribute("href", "#" + docID);
     learnMoreButton.setAttribute("role", "button");
 
-
-    scholarship.setAttribute('data-id', toString(doc.id));
-
+    // These are assigning each text content to the coressponding descriptions
     category.textContent = categoryTextContent;
     name.textContent = nameTextContent;
     deadline.textContent = deadlineTextContent;
@@ -119,9 +115,7 @@ function render(doc) {
     levelOfStudy.textContent = levelOfStudyTextContent;
     numberAvailable.textContent = numberAvailableTextContent;
 
-    // mainGrid.appendChild(subGrid)
-
-    // subGrid.appendChild(scholarship)
+    //These are attaching all the components of the boxes into one 
     mainGrid.appendChild(scholarship)
 
     nameDiv.appendChild(name)
@@ -147,11 +141,3 @@ function render(doc) {
 
     scholarshipList.appendChild(mainGrid);
 }
-
-
-db.collection("Scholarship Database").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        render(doc)
-        console.log(doc.id.replace(/\s/g, ''))
-    });
-});
