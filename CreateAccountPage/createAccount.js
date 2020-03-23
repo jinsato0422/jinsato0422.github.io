@@ -24,12 +24,29 @@ function initiateProgram(){
 }
 
 
+/* Checks whether an ID is valid. If an email is valid changes the text below the 
+email text area to "Valid ID" and turns the text green*/
+function verifyGoodID(){
+	if(validateID()){
+		validID.innerHTML = "Valid ID.";
+		console.log(validID);
+		validID.style.color = "green";
+	} else {
+		validID.innerHTML = "Please enter your 8-digit ID number.";
+		validID.style.color = "red";
+	}
+}
+	
+
 /* Checks whether an email is valid. If an email is valid changes the text below the 
 email text area to "Valid Email" and turns the text green*/
 function verifyGoodEmail(){
 	if (validateEmail()){
 		validEmail.innerHTML = "Valid Email.";
 		validEmail.style.color = "green";
+	} else {
+		validEmail.innerHTML = "Please enter a valid email address.";
+		validEmail.style.color = "red";
 	}
 }
 
@@ -40,8 +57,12 @@ function verifyGoodPassword(){
 	if (checkPassword()){
 		goodPW.innerHTML = "Valid Password";
 		goodPW.style.color = "green";
+	} else {
+		goodPW.innerHTML = "Requirements: 6-20 characters, one numeric digit, one uppercase, one lowercase.";
+		goodPW.style.color = "red";
 	}
 }
+
 
 
 /* Checks whether the two copies of the password match. If passwords match changes the text below the 
@@ -50,6 +71,9 @@ function verifyPasswordsMatch(){
 	if (checkPasswordsMatch()){
 		PWMatch.innerHTML = "Passwords Match";
 		PWMatch.style.color = "green";
+	} else {
+		PWMatch.innerHTML = "Please ensure passwords match.";
+		PWMatch.style.color = "red";
 	}
 }
 
@@ -68,8 +92,19 @@ true if password valid otherwise returns false.
 Code adapted from: https://www.w3resource.com/javascript/form/password-validation.php*/
 function checkPassword() 
 { 
-	var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
-	if(pw.value.match(passw))return true;
+	var possiblePassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+	if(pw.value.match(possiblePassword))return true;
+	
+	return false;
+}
+
+
+/*Checks whether an ID is 8 characters long and only contains numbers. Returns true if an ID contains 
+appropriate characters and is 8 characters long. Otherwise, returns falsee.*/
+function validateID(){
+	var possibleID = /^(?=.*\d).{8}$/
+	
+	if(id.value.match(possibleID)) return true;
 	
 	return false;
 }
@@ -80,7 +115,8 @@ otherwise returns false.
 Code adapted from: https://www.w3resource.com/javascript/form/email-validation.php */
 function validateEmail() 
 {
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) return true;
+	var possibleEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+	if (possibleEmail.test(email.value)) return true;
  
  return false;
 }
@@ -93,35 +129,54 @@ function returnToSignIn(){
 }
 
 
+
 /*Verifies whether a submission of the form is valid by checking that the passwords match,
-that the email is valid and that every field is filled in. If something is invalid,
+that the email is valid, the ID is valid and that every field is filled in. If something is invalid,
 an alert is sent to the user to try again and the create account page is reloaded. Otherwise,
 the successful login page is loaded.*/
 function verifyValidSubmission(){
+	event.preventDefault();
 	
-	
-	if (!(checkPasswordsMatch() && validateEmail())||(fname.value == "") || 
-						(lname.value == "") || (id.value == "")){
+	if (!(checkPasswordsMatch() && validateEmail() && validateID())||(fname.value == "") || 
+						(lname.value == "")){
 		alert("One or more fields has invalid information, please try again");
 	}
 	else {
-		event.preventDefault();
 		writeUserData();
 	}
 }	
 
 
 
-
+/* Writes the account infomation for a new account if an account linked to the users ID value does not exist.
+If this account is created, a notification is given to the user and the user is redirected to the login page.
+If the account linked to the user's given ID number already exists, then the user is alerted that the given
+ID has been already selected and they need to get a new ID. These commands are completed by accessing given
+Firebase commands. */
 function writeUserData() {
 	
-	database.collection('users').doc(id.value).set({
-		name: fname.value + " " + lname.value,
-		id: id.value,
-		email: email.value,
-		password: pw.value
-	}).then((snapshot)=>{
-		window.location.href = "Homepage.html";
-	})
+	var data = database.collection('users').doc(id.value);
+	
+	database.runTransaction(function(transaction){
+		transaction.get(data).then(function(doc){
+			if(!doc.exists){
+				data.set({
+					name: fname.value + " " + lname.value,
+					id: id.value,
+					email: email.value,
+					password: pw.value
+					}).then((snapshot)=>{
+					alert("Account created. You will now be redirected to the login page");
+					window.location.href = "login.html";
+				})
+			}
+			else{
+				alert("Sorry this user ID is already assigned to another user, please verify that you have entered the correct ID");
+			}
+		})
+	}).catch(function(error) {
+	});
+	
+
   
 }

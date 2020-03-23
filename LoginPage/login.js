@@ -23,7 +23,9 @@ function initiateProgram(){
 	
 }
 
-
+/* Loads the usernames and passwords for the users and holds these in  an array that is acessed  
+in later functions. This process takes some time, so the snapshot is used to enter the information
+only after all the data has been accessed */
 function loadUserInformation(){
 	database.collection('users').get().then((snapshot)=>{
 		snapshot.docs.forEach(doc => {
@@ -32,7 +34,8 @@ function loadUserInformation(){
 	})
 }
 
-
+/* Adds a user to the user information array by taking an input of information about that user. 
+Adds the variable created from the user information to the userInformation array*/
 function addToUserInformation(info){
 	var user = {
 		username: info.data().id,
@@ -73,11 +76,13 @@ function binarySearch (d, t, s, e) {
   }
 }
 
-/*The next two functions load other windows when certain buttons are pressed*/
+/*Loads the forgotPassword page when the forgot password button*/
 function forgotPassword(){
 	window.location.href = "forgotPassword.html";
 }
 
+
+/*Loads the createAcount page when the function is called - new account button is pressed */
 function newAccount(){
 	window.location.href = "createAccount.html";
 }
