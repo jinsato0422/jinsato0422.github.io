@@ -1,3 +1,4 @@
+<!-- Sets up CSS style sheet using Bootstrap -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- adds appropriate padding so text and checkboxes aren't against the borders of the boxes -->
 <style>
 div.scholarshipInfo {
   line-height: 2;
@@ -23,27 +26,32 @@ hr {
   margin-bottom: 0px 
 }
 
+/*Defines colour of title header*/
 .jumbotron {
   background-color: #69E23C;
 }
 
+/*Defines colour of each panel header*/
 .panel > .panel-heading {
     background-color: #1D8348;
     color: white;
 }
 
+/*Changes colour of URL text*/
 a {
   color: white;
 }
 </style>
 </head>
 
+<!-- Creates title header -->
 <body>
 <div class="jumbotron text-center">
   <h1>Awards Overview</h1>
   <p>Check which awards you can apply for!</p> 
 </div>
   
+<!-- Creates filter panel -->
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
@@ -54,7 +62,7 @@ a {
           <div class="panel-body">
             <i><h5>Scholarship Type</h5></i>
           </div>
-            
+          <!-- Creates the checkboxes and labels for each scholarship type -->
             <dd id="checkboxes">
               <label for="checkbox1">
                 <input type="checkbox" id="checkbox1" name="checkbox1" value="department-specific">
@@ -67,15 +75,16 @@ a {
                 Faculty-specific
               <label for="checkbox4">
                 <input type="checkbox" id="checkbox4" name="checkbox4" value="faculty-wide">
-                  Faculty-wide
+                Faculty-wide
             </dd>
 
+          <!-- Creates midline divider -->
           <hr class="my-3">
 
           <div class="panel-body">
             <i><h5>Applicant Type</h5></i>
           </div>
-
+          <!-- Creates the checkboxes and labels for each applicant type -->
             <dd id="checkboxes">
               <label for="checkbox5">
                 <input type="checkbox" id="checkbox5" name="checkbox5" value="undergraduate student">
@@ -90,12 +99,14 @@ a {
                 <input type="checkbox" id="checkbox8" name="checkbox8" value="postdoctoral researcher">
                 Postdoctoral Researcher
             </dd>
-    
       </div>
     </div>
-    
+
+    <!-- Creates a column to encompass the two columns of scholarships -->
     <div class="col-sm-9">
+      <!-- Creates the first column of scholarships -->
       <div class="col-sm-6">
+        <!-- Creates group of first column's scholarships -->
         <div class="panel-group">
 
           <div class="panel panel-success">
@@ -121,11 +132,12 @@ a {
                 <div class="scholarshipInfo">Field of Study: University-wide</div>
                 <div class="scholarshipInfo">Number available: 1</div>
           </div>          
-
         </div>
       </div>
 
+      <!-- Creates the second column of scholarships -->
       <div class="col-sm-6">
+        <!-- Creates group of first column's scholarships -->
         <div class="panel-group">
 
           <div class="panel panel-success">
@@ -151,12 +163,10 @@ a {
                 <div class="scholarshipInfo">Field of Study: Nation-wide</div>
                 <div class="scholarshipInfo">Number available: 1</div>
           </div>  
-
         </div>
       </div>
     </div>
   </div>
 </div>
-
 </body>
 </html>
