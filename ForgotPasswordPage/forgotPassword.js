@@ -50,6 +50,7 @@ function returnToMain() {
 the given user, the sendEmail() function is then called to send the email to the user at their specified email. If the user's email is not 
 found an alert is given and the page is reloaded*/
 function findUser() {
+	console.log("here");
     database.collection('users').get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
             if (doc.data().email == email.value) {
@@ -72,9 +73,9 @@ does this by looking where the information is stored and then adds the resetpass
 function setEmailText() {
     var docLocation = document.location;
     docLocation = docLocation.toString();
-    var placeToTrim = docLocation.search("../ForgotPasswordPage/forgotPassword.html");
+    var placeToTrim = docLocation.search("ForgotPasswordPage/forgotPassword.html");
     docLocation = docLocation.substring(0, placeToTrim);
-    docLocation = docLocation + "../ResetPasswordPage/resetPassword.html?" + userInfo.data().id;
+    docLocation = docLocation + "ResetPasswordPage/resetPassword.html?" + userInfo.data().id;
 
 
     emailText = "Hi " + userInfo.data().name + ", <br> We recieved a request" +
