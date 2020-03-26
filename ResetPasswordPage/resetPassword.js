@@ -19,12 +19,11 @@ function initiateProgram() {
 /*Changes a users password in the Firebase Database from its previous password to teh new password given 
 by the user. The user is then alerted of the password change and the page is redirected to the login page*/
 function changePassword() {
-    console.log(id);
     database.collection('users').doc(id).update({
         password: pw.value
     }).then(function() {
         alert("Your password has been successfully reset. You will now be redirected to the login page");
-        window.location.href = "login.html";
+        window.location.href = "../LoginPage/login.html";
     })
 }
 

@@ -125,7 +125,7 @@ function validateEmail()
 /*Changes the main page to the login page. Code run when the "Return to sign in" button is
 pressed */
 function returnToSignIn(){
-	window.location.href = "login.html";
+	window.location.href = "../LoginPage/login.html";
 }
 
 
@@ -167,7 +167,7 @@ function writeUserData() {
 					password: pw.value
 					}).then((snapshot)=>{
 					alert("Account created. You will now be redirected to the login page");
-					window.location.href = "login.html";
+					window.location.href = "../LoginPage/login.html";
 				})
 			}
 			else{
