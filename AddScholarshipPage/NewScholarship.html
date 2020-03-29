@@ -1,71 +1,171 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="NewScholarship.css">
+
+<head>
+    <link rel="stylesheet" href="NewScholarship.css">
     <h1>
-        WELCOME TO THE NEW SCHOLARSHIPS PAGE! 
+        WELCOME TO THE NEW SCHOLARSHIPS PAGE!
     </h1>
-    </head>
-    <body>
+</head>
+
+<body>
     <h4>
         Fill out the following to add a new scholarship:
     </h4>
     <!--the following is the form for the scholarship coordinator to fill out-->
-    <form>
-        <!--this is the name of the scholarship-->
-        <div>
-            <label for = "name" style="text-align: center;"> Name: </label>
+    <form id="addscholarship">
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <label for="d_id" style="text-align: center;"> Scholarship ID: </label>
+                <br/>
+                <input type="text" id="d_id" name="d_id" maxlength="50" size="30">
+            </div>
             <br/>
-            <input type="text" name="name" maxlength="50" size="30">
-        </div>
-        <br/>
-        <!--this is the amount granted based on input-->
-        <div>
-            <label for = "amount" style="text-align: center;"> Amount Granted: </label>
+            <!--this is the name of the scholarship-->
+            <div>
+                <label for="name" style="text-align: center;"> Name: </label>
+                <br/>
+                <input type="text" id="name" name="name" maxlength="50" size="30">
+            </div>
             <br/>
-            <input type="text" name="amount" maxlength="50" size="30">
-        </div>
-        <br/>
-        <!--this is the amount of students able to recieve said scholarship-->
-        <div>
-            <label for = "students" style="text-align: center;"> Amount of students awarded: </label>
+            <!--this is the amount granted based on input-->
+            <div>
+                <label for="provider" style="text-align: center;"> Provider: </label>
+                <br/>
+                <input type="text" id="provider" name="provider" maxlength="50" size="30">
+            </div>
             <br/>
-            <input type="text" name="students" maxlength="50" size="30">
-        </div>
-        <br/>
-        <!--this is a selection of types of scholarships the coordinator can choose from-->
-        <div>
-            <label for = "type"> Select the type of scholarship you want to create.</label>
+            <div>
+                <label for="value" style="text-align: center;"> Amount Granted: </label>
+                <br/>
+                <input type="text" id="value" name="value" maxlength="50" size="30">
+            </div>
             <br/>
-            <select id="type" name="type">
-                <option value="fwide">Faculty Wide</option>
-                <option value="fspecific">Faculty Specific</option>
-                <option value="dwide">Department Wide</option>
-                <option value="uwide">University Wide</option>
+            <!--this is the amount of students able to recieve said scholarship-->
+            <div>
+                <label for="students" style="text-align: center;"> Amount of students awarded: </label>
+                <br/>
+                <input type="text" id="students" name="students" maxlength="50" size="30">
+            </div>
+            <br/>
+            <!--this is a selection of types of scholarships the coordinator can choose from-->
+            <div>
+                <label for="category"> Select the type of scholarship you want to create.</label>
+                <br/>
+                <select id="category" name="category">
+                <option value=""></option>
+                <option value="Department-specific">Department Specific</option>
+                <option value="Department-wide">Department Wide</option>
+                <option value="Faculty-specific">Faculty Specific</option>
+                <option value="Faculty-wide">Faculty Wide</option>
+                <option value="Nation-wide">Nation Wide</option>
+                <option value="University-wide">University Wide</option>
               </select>
             </div>
-        <br/>
-        <!--the coordinator can choose from these two duration options for said scholarship-->
-        <div class ="col-75">
-            <label for = "times"> Select the scholarship time duration:</label>
             <br/>
-            <select id = "times" name="times">
-                <option value="sem">Per semester</option>
-                <option value="fspecific">Yearly</option>
+            <!--the coordinator can choose from these two duration options for said scholarship-->
+            <div class="col-75">
+                <label for="offered"> Select the scholarship time duration:</label>
+                <br/>
+                <select id="offered" name="offered">
+                <option value=""></option>
+                <option value="Yearly">Yearly</option>
+                <option value="Semester">Semesterly</option>
               </select>
-        </div>
-        <br/>
-        <!--this is the summary of the scholarship required of the scholarship coordinator-->
-        <div>
-            <label for = "summary"> Submit a short summary of the scholarship: </label>
+            </div>
             <br/>
-            <textarea name = "summary" maxlength="2000" cols="25" rows="13"></textarea>
-        </div> 
-        <br/>
-        <br/>
-        <!--this is the submit button for the form-->
-        <input type="submit" value="Submit"> 
-    </form>
-    </body>
+            <!--this is the course load required for the student to get a scholarship-->
+            <div>
+                <label for="courseLoad" style="text-align: center;"> Course Load: </label>
+                <br/>
+                <select id="courseLoad" name="courseLoad">
+                <option value=""></option>
+                <option value="Any">Any</option>
+                <option value="Full-time">Full-Time</option>
+              </select>
+            </div>
+            <div>
+                <label for="levelOfStudy" style="text-align: center;"> Level of Study: </label>
+                <br/>
+                <select id="levelOfStudy" name="levelOfStudy">
+                <option value=""></option>
+                <option value="Undergrad">Undergrad</option>
+                <option value="Masters">Masters</option>
+                <option value="phd">PHD</option>
+                <option value="Medical/Nursing/Social Sciences">Medical/Nursing/Social Sciences</option>
+              </select>
+            </div>
+            <br/>
+            <br/>
+            <!--this is the course load required for the student to get a scholarship-->
+            <div>
+                <label for="fieldOfStudy" style="text-align: center;"> Field of Study: </label>
+                <br/>
+                <select id="fieldOfStudy" name="fieldOfStudy">
+                <option value=""></option>
+                <option value="Arts">Arts</option>
+                <option value="Business">Business</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Medical/Nursing/Social Sciences">Medical/Nursing/Social Sciences</option>
+              </select>
+            </div>
+            <br/>
+            <!--this is the course load required for the student to get a scholarship-->
+            <div>
+                <label for="yearOfStudy" style="text-align: center;"> Year of Study: </label>
+                <br/>
+                <select id="yearOfStudy" name="yearOfStudy">
+                <option value=""></option>
+                <option value="First Year">First Year</option>
+                <option value="Second Year">Second Year</option>
+                <option value="Third Year">Third Year</option>
+                <option value="Final Year">Final Year</option>
+            </select>
+            </div>
+            <br/>
+            <!--this is the summary of the scholarship required of the scholarship coordinator-->
+            <div>
+                <label for="description"> Submit a short summary of the scholarship: </label>
+                <br/>
+                <textarea id="description" name="description" maxlength="2000" cols="25" rows="13"></textarea>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <br/>
+            <br/>
+            <!--this is the submit button for the form-->
+            <input type="submit" value="Submit" name="submit">
+        </form>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
+        authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
+        databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
+        projectId: "scholarshipdatabase-a4ba6",
+        storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
+        messagingSenderId: "664316210117",
+        appId: "1:664316210117:web:2323f7fc7c7b18ee31b9ac",
+        measurementId: "G-QS6ZN8MCKM"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const db = firebase.firestore();
+    db.settings({
+        timestampsInSnapshots: true
+    })
+</script>
+
+<script src="NewScholarship.js"></script>
 
 </html>
