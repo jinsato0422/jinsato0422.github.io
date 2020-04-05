@@ -160,7 +160,7 @@ function writeUserData() {
 	database.runTransaction(function(transaction){
 		transaction.get(data).then(function(doc){
 			if(!doc.exists){
-				data.set({
+				return data.set({
 					name: fname.value + " " + lname.value,
 					id: id.value,
 					email: email.value,
