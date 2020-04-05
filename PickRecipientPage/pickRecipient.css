@@ -1,0 +1,103 @@
+
+body{
+	background-image: url('background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position:center
+}
+
+
+
+#mainform{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 150px;
+	background-color: white;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	border: 10px solid #0f9c00;
+	border-radius: 25px;
+}
+
+h1{
+	text-align: center;
+	font-size: 30;
+}
+
+
+label{
+	font-size: 20;
+}
+
+#nameLabel{
+	font-weight: bold;
+}
+
+#idLabel{
+	font-weight: bold;
+}
+
+#gpaLabel{
+	font-weight: bold;
+}
+
+#degreeLabel{
+	font-weight: bold;
+}
+
+#transcript{
+	margin-left: 45px;
+}
+
+#supportingDoc{
+	margin-left: 25px;
+}
+
+#return{
+	margin-left: 22px;
+}
+
+#select{
+	margin-left: 53px;
+}
+
+
+
+select{
+	margin-top: 5px;
+	width: 500px;
+	font-size: 18;
+}
+
+
+
+.applicants{
+	display: none;
+}
+
+#candidateInformationForm{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 125px;
+	background-color: white;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	border: 10px solid #0f9c00;
+	border-radius: 25px;
+}
+
+
+input{
+	font-size: 19;
+	border: 0.5px solid black;
+	border-radius: 2px;
+	/* background-color: white; */
+	
+}

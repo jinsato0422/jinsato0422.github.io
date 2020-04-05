@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <!-- Links to the stylesheet to make things beautiful -->
+    <link rel="stylesheet" href="pickRecipient.css">
+
+    <!-- The core Firebase JS SDK that is given by Firebase to link to the database -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <!-- A secondary Firbase JS SDK that allows us to call firebase commands -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+	<!-- A link to the smtp an emailing service that sends emails giving a password requiest -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+
+
+<!-- Form made with two headers and -->
+
+<body>
+    <form name="mainform" id="mainform">
+        <h1> Scholarship Recipient Selection: </h1>
+        <label id = "selectionHeader"> Select a Scholarship: </label> <br>
+		<select id="availableScholarships" onchange = displayCandidates()>
+			<option value="" disabled selected>Select a scholarship</option>
+		</select>
+		<br><br>
+		
+		<div class = "applicants" id = "applicantsPane">
+			<label id = "applicantsHeader"> Select a Candidate to Review Application: </label>
+			<select id = "applicants" onchange = displayApplicantInfo()>
+				<option value= "" disabled selected> Select a candidate </option>
+			</select>
+        </div>
+
+    </form>
+	
+	
+	<form name="candidateInformationForm" id="candidateInformationForm">
+		<h1> Applicant Information: </h1>
+		<label id = "nameLabel"> Applicant Name: </label>
+		<label id = "name"> applicantName </label><br>
+		<br>
+		<label id = "idLabel"> Applicant Student ID: </label>
+		<label id = "id"> applicantID </label><br>
+		<br>
+		<label id = "gpaLabel"> Applicant GPA: </label>
+		<label id = "gpa"> applicantGPA </label><br>
+		<br>
+		<label id = "degreeLabel"> Applicant Degree Stream: </label>
+		<label id = "degree"> applicantDegree</label><br>
+		<br><br><br>
+		<input type = "button" id = "transcript" value = "View Transcript">
+		<input type = "button" id = "supportingDoc" value = "View Supporting Documents">
+		<br><br>
+		<input type = "button" id = "return" value = "Return To Applicants" onclick= returnToApplicants()>
+		<input type = "button" id = "select" value = "Select Applicant" onclick= selectApplicant()>
+	</form>
+	
+	
+
+
+    <script>
+        // Our apps Firease configuration given by Firebase
+        var firebaseConfig = {
+            apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
+            authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
+            databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
+            projectId: "scholarshipdatabase-a4ba6",
+            storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
+            messagingSenderId: "664316210117",
+            appId: "1:664316210117:web:2323f7fc7c7b18ee31b9ac",
+            measurementId: "G-QS6ZN8MCKM"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.firestore();
+    </script>
+
+    <!-- Links to the script needed to reset the password -->
+    <script src="pickRecipient.js"></script>
+</body>
+
+</html>

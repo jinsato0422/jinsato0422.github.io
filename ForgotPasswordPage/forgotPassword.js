@@ -50,7 +50,6 @@ function returnToMain() {
 the given user, the sendEmail() function is then called to send the email to the user at their specified email. If the user's email is not 
 found an alert is given and the page is reloaded*/
 function findUser() {
-	console.log("here");
     database.collection('users').get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
             if (doc.data().email == email.value) {
