@@ -40,7 +40,16 @@ function findAvailableScholarships(){
 	
 	database.collection('Scholarship Database').get().then((snapshot) => {
         snapshot.docs.forEach(doc => {
-			addScholarshipInformation(doc);
+			const numScholarshipAvail = doc.data().numberAvailable;
+			const numScholarshipTaken = doc.data().numberTaken;
+			
+			console.log(doc.id + " " + numScholarshipTaken);
+			
+			if ( (numScholarshipTaken == undefined) || 
+				(numScholarshipTaken < numScholarshipAvail)){
+					addScholarshipInformation(doc);
+			}
+			
         })
     })
 
@@ -195,13 +204,25 @@ function selectApplicant(){
 
 function processApplicantSelection(){
 	
+	
 	database.collection('offers').add({
 		id: currentCandidate.id,
 		name: currentCandidate.name,
 		scholarshipID: currentScholarship.id,
 		acceptDate: Date.now() + twoWeeksInMilliseconds
 	}).then(function(){
-		sendConfirmationEmail();
+		var numScholarshipTaken = currentScholarship.data().numberTaken;
+		if(numScholarshipTaken == undefined){
+			numScholarshipTaken = 1;
+		} else {
+			numScholarshipTaken++;
+		}
+		
+		database.collection('Scholarship Database').doc(currentScholarship.id).update({
+			numberTaken: numScholarshipTaken
+		}).then(function(){
+			sendConfirmationEmail();
+		});
 	});
 }
 
