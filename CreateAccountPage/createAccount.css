@@ -9,34 +9,11 @@ h1{
 	text-align: center;
 }
 
-#fname{
-	width: 350px 
-}
 
-#lname{
+input{
 	width: 350px
 }
 
-
-#id{
-	width: 350px
-}
-
-#email{
-	width: 350px
-}
-
-#user{
-	width: 350px
-}
-
-#pw{
-	width: 350px
-}
-
-#trupw{
-	width: 350px
-}
 
 /* The following styles set the size and color of the small text shown below the password \
 and email boxes */
@@ -60,10 +37,26 @@ and email boxes */
 	color: red;
 }
 
-/* The following stule sets where the return button is located */
+#userTypes{
+	width: 340px;
+	font-size: 14;
+}
+
+#adminPW{
+	width: 350px;
+	display: none;
+}
+
+/* The following style sets where the return button is located */
 #return{
+	width: auto;
 	margin-left: 10px;
 	margin-right: 80px;
+}
+
+/* The following style sets where width of the submit button */
+#submit{
+	width: auto;
 }
 
 
@@ -75,6 +68,5 @@ form{
   background-color: white;
   padding-right: 50px;
   padding-left: 50px;
-  padding-top: 10px;
   border: 5px solid black;
 }

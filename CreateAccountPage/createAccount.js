@@ -5,6 +5,8 @@ var email;
 var user;
 var pw;
 var verifyPw;
+var userType;
+var admin = false;
 
 initiateProgram();
 
@@ -18,9 +20,7 @@ function initiateProgram(){
 	pw = document.getElementById("pw");
 	verifyPw = document.getElementById("trupw");
 	email = document.getElementById("email");
-	
-	 
-
+	userType = document.getElementById("userTypes");
 }
 
 
@@ -29,7 +29,6 @@ email text area to "Valid ID" and turns the text green*/
 function verifyGoodID(){
 	if(validateID()){
 		validID.innerHTML = "Valid ID.";
-		console.log(validID);
 		validID.style.color = "green";
 	} else {
 		validID.innerHTML = "Please enter your 8-digit ID number.";
@@ -137,14 +136,46 @@ the successful login page is loaded.*/
 function verifyValidSubmission(){
 	event.preventDefault();
 	
-	if (!(checkPasswordsMatch() && validateEmail() && validateID())||(fname.value == "") || 
-						(lname.value == "")){
+	if (!(checkPasswordsMatch() && validateEmail() && validateID())||
+			(fname.value == "") || (lname.value == "")){
 		alert("One or more fields has invalid information, please try again");
 	}
-	else {
+	else if (admin){
+		verifyAdminPassword();
+	}
+	else{
 		writeUserData();
 	}
 }	
+
+
+function checkIfCoordinator(){
+	adminPWStyle = document.getElementById("adminPW");
+	if (userType.value == "Coordinator"){
+		adminPWStyle.style.display = "inline-block";
+		admin = true;
+	} else{
+		adminPWStyle.style.display = "none";
+		admin = false;
+	}
+}
+
+
+function verifyAdminPassword(){
+	
+	const enteredPassword = document.getElementById("adminPWInput").value;
+
+	database.collection('administration').get().then((snapshot) => {
+		snapshot.docs.forEach(doc => {
+			if (doc.data().pw == enteredPassword) {
+				writeUserData();
+			}
+			else {
+				alert("Incorrect administrator password.");
+			}	
+		})
+	})
+}
 
 
 
@@ -164,7 +195,8 @@ function writeUserData() {
 					name: fname.value + " " + lname.value,
 					id: id.value,
 					email: email.value,
-					password: pw.value
+					password: pw.value,
+					type: userType.value
 					}).then((snapshot)=>{
 					alert("Account created. You will now be redirected to the login page");
 					window.location.href = "../LoginPage/login.html";

@@ -13,8 +13,6 @@ Sets the header to U of S Scholarships -->
   
 </head>
 
-<br><br>
-
 <body>
 
 
@@ -46,6 +44,20 @@ run and the page changes to correctPassword.html -->
 	<label for="trupw">Confirm Password:</label><br>
 	<input type="password" id="trupw" oninput = verifyPasswordsMatch()><br>
 	<label id = "PWMatch">Please ensure passwords match.</label><br><br>
+	
+	<label for="userTypes">Select Your User Role:</label><br>
+	<select id="userTypes" onchange = checkIfCoordinator()>
+		<option value="" disabled selected>Select a role</option>
+		<option value= "Student">Student</option>
+		<option value= "Professor">Professor</option>
+		<option value= "Coordinator">Scholarship Coordinator</option>
+	</select><br><br>
+	
+	<div class = "admin" id = "adminPW">
+		<label for="adminPWInput">Please Enter the Administrator Password:</label><br>
+		<input type="password" id="adminPWInput"><br><br>
+	</div>
+
 	
 	<input type = "button" id = "return" value = "Return to Sign In" onclick = returnToSignIn()> 
 	<input type="submit" id="submit" value = "Submit and Sign In" ><br><br><br>
