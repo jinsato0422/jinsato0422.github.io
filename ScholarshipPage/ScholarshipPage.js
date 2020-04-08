@@ -264,7 +264,10 @@ function setEventListenerToCheckbox(checkbox) {
             console.log(checkbox);
             console.log('unchecked!');
             //Discard unchecked boxes  
-            checkedboxes.pop(checkbox);
+            var x = checkedboxes.indexOf(checkbox);
+            checkedboxes.splice(x, 1);
+            console.log("Below is the boxes that are still checked");
+            console.log(checkedboxes);
             if (checkedboxes.length != 0) {
                 for (var k = 0; k < scholarshipList.length; k++) {
                     for (var j = 0; j < checkedboxes.length; j++) {
@@ -319,14 +322,6 @@ function setEventListenerToCheckbox(checkbox) {
 
     })
 }
-
-
-
-
-
-
-
-
 
 var checkedboxes = [];
 const scholarshipList = document.getElementsByClassName('scholarship');
