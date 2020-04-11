@@ -28,7 +28,7 @@
 	an area for a password and several buttons that redirect to other pages, including a submit button. When the submit button is pressed
 	the verifyPassword() comman in the javascript controller is run and the page is redirected to the correctPassword page, a page that 
 	will eventually be changed to the main login area -->
-    <form name="mainform" id="mainform" onsubmit="verifyPassword()" action="../Homepage/Homepage.html" accept-charset="UTF-8" method="post">
+    <form name="mainform" id="mainform" onsubmit="verifyPassword()" accept-charset="UTF-8" method="post">
         <input type="text" id="user" name="user" placeholder="User ID"><br><br>
         <input type="password" id="pw" placeholder="Password"><br><br>
         <input type="submit" id="sign_in" value="Sign in"><br><br><br>
@@ -57,6 +57,7 @@
 
     <!-- Script used to run all the commands required for the login page -->
     <script src="login.js"></script>
+	<script src="removeUnacceptedApplications.js"></script>
 </body>
 
 </html>

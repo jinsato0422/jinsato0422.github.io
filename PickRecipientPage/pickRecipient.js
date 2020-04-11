@@ -205,7 +205,7 @@ function selectApplicant(){
 function processApplicantSelection(){
 	
 	
-	database.collection('offers').add({
+	database.collection('offers').doc(currentCandidate.id).set({
 		id: currentCandidate.id,
 		name: currentCandidate.name,
 		scholarshipID: currentScholarship.id,
