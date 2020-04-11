@@ -49,11 +49,14 @@ function addToUserInformation(info) {
 /* Ensures that a given username aligns to a given password, sends an error 
 message and rejects password if incorrect */
 function verifyPassword() {
+	event.preventDefault();
     var user = binarySearch(userInformation, username.value, 0, userInformation.length - 1);
     if (user === undefined || pw.value != user.pw) {
-        document.mainform.action = "login.html";
+        window.location.href = "login.html";
         alert("Sorry you entered an incorrect username or password, please try again");
-    }
+    } else {
+		window.location.href ="../Homepage/Homepage.html?" + user.username;
+	}
 
 }
 

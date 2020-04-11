@@ -10,6 +10,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
 	<!-- A link to the smtp an emailing service that sends emails giving a password requiest -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+
 </head>
 
 
@@ -30,6 +31,7 @@
 				<option value= "" disabled selected> Select a candidate </option>
 			</select>
         </div>
+		<input type = "button" id = "returnToMain" value = "Return to Main">
 
     </form>
 	
@@ -53,7 +55,10 @@
 		<br><br>
 		<input type = "button" id = "return" value = "Return To Applicants" onclick= returnToApplicants()>
 		<input type = "button" id = "select" value = "Select Applicant" onclick= selectApplicant()>
+		<input type = "button" id = "returnToMain" value = "Return to Main">
 	</form>
+	
+
 	
 	
 
@@ -77,6 +82,9 @@
 
     <!-- Links to the script needed to reset the password -->
     <script src="pickRecipient.js"></script>
+	<!-- Links to the script to return to the main page with appropriate commands if user wishes to return to main -->
+	<script src="../ReturnToMain/returnToMain.js"></script>
+
 </body>
 
 </html>
