@@ -11,6 +11,8 @@ var availableScholarships;
 var currentScholarship;
 var currentCandidate;
 
+
+
 initiateProgram();
 
 function initiateProgram(){
@@ -30,6 +32,8 @@ function initiateProgram(){
 	}
 	
 	candidateInformationPane.pane.style.display = "none";
+	
+
 	
 	findAvailableScholarships();
 }
@@ -95,6 +99,7 @@ function displayCandidates(){
 		candidateSelectionPane.applicants.style.display = "inline";
 		candidateSelectionPane.header.innerText = "Select a Candidate to Review Application:";
 		
+		
 		findCandidateInformation(candidates);
 	}
 	
@@ -145,6 +150,7 @@ function findCandidateInformation(candidates){
 			}
 			if(candidate == lastCanadidate){	
 					candidateSelectionPane.pane.style.display = "inline";
+					
 			}
 		}).catch(err => {
 			resetPage();
@@ -171,6 +177,8 @@ function displayApplicantInfo(){
 	candidateData.then(candidateInfo => {
 		mainForm.style.display = "none";
 		candidateInformationPane.pane.style.display = "block";
+		candidateInformationPane.pane.appendChild(document.getElementById("returnToMain"));
+
 		
 		candidateInformationPane.name.innerHTML = candidateName;
 		candidateInformationPane.id.innerHTML = candidateInfo.s_id;
@@ -184,10 +192,12 @@ function displayApplicantInfo(){
 		}
 	});
 
+
 }
 
 function returnToApplicants(){
 	mainForm.style.display = "block";
+	mainForm.appendChild(document.getElementById("returnToMain"));
 	candidateInformationPane.pane.style.display = "none";
 }
 
