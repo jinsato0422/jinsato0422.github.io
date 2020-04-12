@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
 
 <head>
-    <title>Award System Homepage</title>
-
-    <!-- Required meta tags -->
+    <title>Statistics page</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="Homepage.css">
+    <link rel="stylesheet" href="StatisticsPage.css">
 </head>
 
 <body>
@@ -28,18 +27,14 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../ScholarshipPage/ScholarshipPage.html?">Featured Scholarship</a>
+                        <a class="nav-link" href="../StatisticsPage/StatisticsPage.html">Apply</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../StatisticsPage/StatisticsPage.html?">Stats</a>
+                        <a class="nav-link" href="../ScholarshipPage/ScholarshipPage.html">Featured Scholarship</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../AddScholarshipPage/NewScholarship.html?">Add New Scholarship</a>
+                        <a class="nav-link" href="../StatisticsPage/StatisticsPage.html">Stats</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../PickRecipientPage/pickRecipient.html">offer Scholarship</a>
-                    </li>
-
 
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,16 +59,26 @@
         </nav>
     </div>
 
-    <div class="jumbotron">
-        <h1 class="display-4">Welcome!</h1>
-        <p class="lead">Here you can apply to scholarship</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="../ScholarshipPage/ScholarshipPage.html?" role="button">Learn more</a>
+    <div class="jumbotron text-center">
+        <h1>Statisic Page</h1>
+        <p>Here you can check the acceptance rate on each Scholarships</p>
     </div>
 
+    <div class="container card">
+        <div id="statistic-List" class="row">
+            <div class="col-xl-6 card-header">
+                Name of Scholarship
+            </div>
+            <div class="col-xl-6 text-center card-header">
+                Acceptance Rate
+            </div>
+            <div id="statistic-List"></div>
+        </div>
+    </div>
 
-
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -88,11 +93,9 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script> -->
 
-    <script src="Homepage.js"></script>
+    <script src="StatisticsPage.js"></script>
 </body>
 
 </html>

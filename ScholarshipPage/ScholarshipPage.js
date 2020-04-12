@@ -50,7 +50,7 @@ function render(doc) {
     let group = document.createElement('div');
     group.classList.add("card-body")
     let name = document.createElement('a');
-    name.setAttribute("href", "url")
+    // name.setAttribute("href", "url")
     let value = document.createElement('div');
     value.classList.add("scholarshipInfo");
     let deadline = document.createElement('div');

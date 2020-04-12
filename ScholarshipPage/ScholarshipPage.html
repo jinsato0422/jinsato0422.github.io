@@ -16,6 +16,44 @@
 </head>
 
 <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">JJREY's Scholarship</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../HomePage/HomePage.html?">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Apply</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Featured Scholarship
+                  </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">National Wide</a>
+                            <a class="dropdown-item" href="#">University Wide</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Specific to Faculty</a>
+                        </div>
+                    </li>
+                    <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search for Scholarship" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
     <!-- This is the Title and sub header of the page  -->
     <div class="jumbotron text-center">
         <h1>Awards Overview</h1>
@@ -74,6 +112,9 @@
                             Postdoctoral Researcher
                         </b>
                     </dd>
+                    <!-- Creates midline divider -->
+                    <hr class="my-3">
+                    <button type="button" onclick="window.location.href ='../ApplyPage/applicationform.html?' ;" class="btn btn-success btn-sm">Apply</button>
                 </div>
             </div>
 
@@ -97,9 +138,9 @@
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script> -->
 
 
     <script src="ScholarshipPage.js"></script>
