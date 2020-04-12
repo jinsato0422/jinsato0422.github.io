@@ -1,19 +1,3 @@
-// Configuration for the Firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
-    authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
-    databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
-    projectId: "scholarshipdatabase-a4ba6",
-    storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
-    messagingSenderId: "664316210117",
-    appId: "1:664316210117:web:664d9e3b601d0f6d31b9ac",
-    measurementId: "G-T4BS1QM4Y5"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-//Get the database
-var db = firebase.firestore();
 var statisticList = document.querySelector('#statistic-List');
 
 
@@ -48,12 +32,12 @@ function getAllApplicantAmountForEachScholarship() {
             var scholarshipApplicantNumber = scholarshipApplicants.length;
             console.log(scholarshipApplicants);
             console.log(scholarshipApplicantNumber);
-            render(doc);
+            renderStatistics(doc);
         });
     });
 }
 
-function render(doc) {
+function renderStatistics(doc) {
 
     let name = document.createElement('div');
     name.classList.add("col-xl-6");
@@ -90,7 +74,7 @@ function render(doc) {
 var AcceptedScholarshipList = { "Scholarship 1": 1 };
 getScholarshipAccepted();
 getAllApplicantAmountForEachScholarship();
-const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-wait(2 * 1000).then(() => {
+const waitStatistics = ms => new Promise(resolve => setTimeout(resolve, ms));
+waitStatistics(0.5 * 1000).then(() => {
     console.log(AcceptedScholarshipList)
 })

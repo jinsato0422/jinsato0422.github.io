@@ -28,16 +28,16 @@
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../ScholarshipPage/ScholarshipPage.html?">Featured Scholarship</a>
+                        <a class="nav-link">Featured Scholarship</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../StatisticsPage/StatisticsPage.html?">Stats</a>
+                        <a class="nav-link">Stats</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../AddScholarshipPage/NewScholarship.html?">Add New Scholarship</a>
+                        <a class="nav-link">Add New Scholarship</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../PickRecipientPage/pickRecipient.html">offer Scholarship</a>
+                        <a class="nav-link">offer Scholarship</a>
                     </li>
 
 
@@ -91,6 +91,25 @@
     <!-- <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
     <!-- <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script> -->
+
+    <script>
+        // Configuration for the Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
+            authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
+            databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
+            projectId: "scholarshipdatabase-a4ba6",
+            storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
+            messagingSenderId: "664316210117",
+            appId: "1:664316210117:web:664d9e3b601d0f6d31b9ac",
+            measurementId: "G-T4BS1QM4Y5"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+
+        //Get the database
+        var db = firebase.firestore();
+    </script>
 
     <script src="Homepage.js"></script>
 </body>

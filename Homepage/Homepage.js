@@ -3,22 +3,6 @@ function findUser() {
     queryString = queryString.substring(1);
     return queryString;
 }
-// Configuration for the Firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
-    authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
-    databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
-    projectId: "scholarshipdatabase-a4ba6",
-    storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
-    messagingSenderId: "664316210117",
-    appId: "1:664316210117:web:664d9e3b601d0f6d31b9ac",
-    measurementId: "G-T4BS1QM4Y5"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-//Get the database
-var db = firebase.firestore();
 
 // This retrieves the scholarship data from Firebase
 function render() {
@@ -60,9 +44,6 @@ function getDatabase(name) {
     return databaseList;
 }
 
-
-
-
 function UserDisplay(userType) {
     if (userType == 'Student') {
         var navbarElementsList = document.querySelectorAll('.nav-item');
@@ -100,9 +81,20 @@ function UserDisplay(userType) {
         window.location.href = "../LoginPage/login.html";
     }
 }
+
+function InitHomepage() {
+    var navbarElementsList = document.querySelectorAll('.nav-link');
+    navbarElementsList[0].setAttribute('href', "../HomePage/HomePage.html?" + findUser());
+    navbarElementsList[1].setAttribute('href', "../ScholarshipPage/ScholarshipPage.html?" + findUser());
+    navbarElementsList[2].setAttribute('href', "../StatisticsPage/StatisticsPage.html?" + findUser());
+    navbarElementsList[3].setAttribute('href', "../AddScholarshipPage/NewScholarship.html?" + findUser());
+    navbarElementsList[4].setAttribute('href', "../PickRecipientPage/pickRecipient.html?" + findUser());
+}
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+InitHomepage();
 var dataList = getDatabase("users");
 console.log(dataList);
-const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-wait(0.5 * 1000).then(() => {
+wait(1 * 1000).then(() => {
     render();
-})
+});
