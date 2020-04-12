@@ -1,44 +1,25 @@
-// Configuration for the Firebase
-const firebaseConfig = {
-    apiKey: "AIzaSyDg47nllVUMwivPM9UcXWzdBpQVYayD-MY",
-    authDomain: "scholarshipdatabase-a4ba6.firebaseapp.com",
-    databaseURL: "https://scholarshipdatabase-a4ba6.firebaseio.com",
-    projectId: "scholarshipdatabase-a4ba6",
-    storageBucket: "scholarshipdatabase-a4ba6.appspot.com",
-    messagingSenderId: "664316210117",
-    appId: "1:664316210117:web:664d9e3b601d0f6d31b9ac",
-    measurementId: "G-T4BS1QM4Y5"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-//Get the database
-var db = firebase.firestore();
 var scholarshipLists = document.querySelector('#scholarship-list');
 
 
 // This retrieves the scholarship data from Firebase
-function getDatabase() {
+function getScholarshipDatabase() {
     db.collection("Scholarship Database").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            render(doc)
+            renderScholarship(doc)
             console.log(doc.id.replace(/\s/g, ''))
                 // debug purpose
         });
     });
 }
 
-
-
-
 // This is the function for creating the boxes for each scholarships
-function render(doc) {
+function renderScholarship(doc) {
     let mainGrid = document.createElement('div')
     mainGrid.classList.add("col-xl-6");
 
     let scholarship = document.createElement('div');
     scholarship.classList.add("card");
-    scholarship.classList.add("xs-success")
+    scholarship.classList.add("xs-success");
     scholarship.setAttribute('dataId', toString(doc.id));
     scholarship.setAttribute('Category', doc.data()['category']);
     scholarship.setAttribute('levelOfStudy', doc.data()['levelOfStudy']);
@@ -50,7 +31,7 @@ function render(doc) {
     let group = document.createElement('div');
     group.classList.add("card-body")
     let name = document.createElement('a');
-    name.setAttribute("href", "url")
+    // name.setAttribute("href", "url")
     let value = document.createElement('div');
     value.classList.add("scholarshipInfo");
     let deadline = document.createElement('div');
@@ -327,10 +308,10 @@ var checkedboxes = [];
 const scholarshipList = document.getElementsByClassName('scholarship');
 
 function main() {
-    getDatabase();
+    getScholarshipDatabase();
     console.log('waiting 1 second for retrieving database to be finished')
-    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-    var scholarship = wait(1 * 1000).then(() => {
+    const waitScholarship = ms => new Promise(resolve => setTimeout(resolve, ms));
+    waitScholarship(0.5 * 1000).then(() => {
         console.log("Complete");
         toggleScholarship();
     })
