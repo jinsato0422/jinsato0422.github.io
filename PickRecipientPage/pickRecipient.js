@@ -1,5 +1,5 @@
-const minGPA = 3.7;
-const twoWeeksInMilliseconds = 1209600000;
+var minGPA = 3.7;
+var twoWeeksInMilliseconds = 1209600000;
 
 var mainForm;
 var scholarshipSelectionPane;
@@ -295,7 +295,10 @@ function displayApplicantInfo() {
 
 /* Goes back to the application selection page by reloading the page */
 function returnToApplicants() {
-    window.location.href = "pickRecipient.html"
+	var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
+	
+    window.location.href = "pickRecipient.html?" + queryString;
 }
 
 
@@ -430,5 +433,9 @@ function viewSupportingDoc() {
 /* Resets the page, by sending error message and reloads if there is an error */
 function resetPage() {
     alert("It seems that your selection has produced an error, please try again");
-    window.location.href = "../PickRecipientPage/pickRecipient.html"
+	var queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
+	console.log (queryString);
+	
+    window.location.href = "../PickRecipientPage/pickRecipient.html?" + queryString;
 }
