@@ -1,12 +1,13 @@
 /* sets  background for the body*/
-body{
+
+body {
     color: black;
-    background-color: white; 
-            background-image: url("usask.jpg");
-            background-repeat: no-repeat;
-            background-size: 25%;
-            background-position-x: 950px;
-            background-position-y: 300px; 
+    background-color: white;
+    background-image: url("usask.jpg");
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-x: 950px;
+    background-position-y: 300px;
 }
 
 label {
@@ -21,9 +22,9 @@ input[type=submit] {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
-  }
+}
 
-  input[type="text"] {
+input[type="text"] {
     width: 50%;
     padding: 16px 20px;
     border: gray;
@@ -48,7 +49,7 @@ textarea {
     background-color: #eff1f0;
 }
 
-h1{
+h1 {
     text-align: center;
     font-size: 30;
     font-family: Georgia;
