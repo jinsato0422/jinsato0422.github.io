@@ -64,7 +64,9 @@ function UserDisplay(userType) {
         navbarElementsList[totalLength - 2].classList.remove("d-none");
         navbarElementsList[totalLength - 2].classList.remove("disabled");
         console.log(navbarElementsList[totalLength - 1].classList);
-        document.querySelector('#apply').classList.add('disabled');
+        if (document.querySelector('#apply') != null) {
+            document.querySelector('#apply').classList.add('disabled');
+        }
     } else if (userType == 'Professor') {
 
     } else {

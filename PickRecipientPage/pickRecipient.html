@@ -11,6 +11,9 @@
     <!-- A link to the smtp an emailing service that sends emails giving a password requiest -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
 </head>
 
 
@@ -147,6 +150,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.firestore();
+        const db = firebase.firestore();
     </script>
     <!-- displays corresponding to the user -->
     <script src="../Homepage/Homepage.js"></script>
