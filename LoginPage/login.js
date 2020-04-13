@@ -55,6 +55,8 @@ function verifyPassword() {
         window.location.href = "login.html";
         alert("Sorry you entered an incorrect username or password, please try again");
     } else {
+		
+		// Adds username so system can determine user type for the mainpage
 		window.location.href ="../Homepage/Homepage.html?" + user.username;
 	}
 
