@@ -12,6 +12,8 @@
 <head>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <!--Sets the title of the page-->
     <title> Application Form </title>
     <!--Describes the page and code-->
@@ -286,16 +288,16 @@
                     <input type="text" id="lname" name="lname" size="48.5" required><br>
 
                     <!--Label and input for Email-->
-                    <label for="email" class="label email">Email Address</label>&nbsp&nbsp
-                    <input type="email" id="email" name="email" size="46" required><br>
+                    <label for="email" class="label email">Email Address</label>&nbsp&nbsp&nbsp&nbsp
+                    <input type="email" id="email" name="email" size="44" required><br>
 
                     <!--Label and input for Phone Number-->
                     <label for="number" class="label number">Phone Number</label>&nbsp&nbsp
-                    <input type="tel" id="number" name="number" size="45"><br>
+                    <input type="tel" id="number" name="number" size="43"><br>
 
                     <!--Label and input for Student ID-->
                     <label for="s_id" class="label s_id">Student ID</label>&nbsp&nbsp
-                    <input type="number" id="s_id" name="s_id" size="50" required> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="number" id="s_id" name="s_id" size="50" maxlength="8" required> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 
                     <!--Label and input for GPA-->
                     <label for="gpa" class="label gpa">GPA</label>&nbsp&nbsp
@@ -306,7 +308,7 @@
                     <input type="date" id="dob" name="dob"><br>
 
                     <!--Label and input for Current Degree-->
-                    <label for="degree" class="label degree" style="padding: 8px 30px">Current Degree</label>&nbsp&nbsp
+                    <label for="degree" class="label degree" style="padding: 8px 30px">Current Degree</label>&nbsp
                     <select id="degree" name="degree">
                         <option value = "empty"></option>
                         <option value = "undergrad">Undergrad</option>
@@ -315,7 +317,7 @@
                     </select><br>
 
                     <!--Label and input for grades information-->
-                    <label for="grades" class="label grades" style="padding: 8px 20px">Your transcript does not have a grade of B or lower.</label>&nbsp&nbsp
+                    <label for="grades" class="label grades" style="padding: 8px 18px">Your transcript does not have a grade of B or lower.</label>&nbsp&nbsp
                     <select id="grades" name="grades">
                         <option value = "empty"></option>
                         <option value = "true">True</option>
@@ -324,9 +326,9 @@
                     <br>
 
                     <!--Label and input for the scholarships the application is for-->
-                    <label class="label availableScholarships" id="selectionHeader"> Select a Scholarship: </label>
+                    <label class="label availableScholarships" id="selectionHeader" style="padding: 8px 20px"> Select up to 4 Scholarship: </label>&nbsp&nbsp&nbsp&nbsp
                     <!-- Select for the scholarship -->
-                    <select id="availableScholarships">
+                    <select class='mutliple-formatted' id="availableScholarships" multiple style="width: 25%">
 			            <option value="" disabled selected>Select a scholarship</option>
                     </select>
                     <br>
