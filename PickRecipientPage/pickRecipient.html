@@ -74,13 +74,38 @@
         <label id="shortlistInfo"> Shortlisted scholarships/candidates are highlighted in red. </label>
 
         <!-- Button to return to main -->
-        <input type="button" id="returnToMain" value="Return to Main">
+        <input type="button" id="returnToMain" value="Return to Main">r
 
     </form>
 
 
     <!-- Second form that outlines all the information about a particular candidate. Currently has placeholders
 	for changes in JavaScript. The above return to main button is added to this form at runtime-->
+	<form name="candidateInformationForm" id="candidateInformationForm">
+		<h1> Applicant Information: </h1>
+		<label id = "nameLabel"> Applicant Name: </label>
+		<label id = "name"> applicantName </label><br>
+		<br>
+		<label id = "idLabel"> Applicant Student ID: </label>
+		<label id = "id"> applicantID </label><br>
+		<br>
+		<label id = "gpaLabel"> Applicant GPA: </label>
+		<label id = "gpa"> applicantGPA </label><br>
+		<br>
+		<label id = "degreeLabel"> Applicant Degree Stream: </label>
+		<label id = "degree"> applicantDegree</label><br>
+		<br><br><br>
+		
+		<!-- Buttons for potential actions the scholarship coordinator can partake in -->
+		<input type = "button" id = "transcript" value = "View Transcript" onclick = viewTranscript()>
+		<input type = "button" id = "supportingDoc" value = "View Supporting Documents" onclick = viewSupportingDoc()>
+		<br><br>
+		<input type = "button" id = "select" value = "Select Applicant" onclick= selectApplicant()>
+		<input type = "button" id = "shortlist" value = "Shortlist Applicant" onclick= shortlistApplicant()>
+		<br><br>
+		<input type = "button" id = "return" value = "Return To Applicants" onclick= returnToApplicants()>
+	</form>
+	
     <form name="candidateInformationForm" id="candidateInformationForm">
         <h1> Applicant Information: </h1>
         <label id="nameLabel"> Applicant Name: </label>
