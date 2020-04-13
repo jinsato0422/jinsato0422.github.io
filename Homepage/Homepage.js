@@ -46,24 +46,8 @@ function getDatabase(name) {
 
 function UserDisplay(userType) {
     if (userType == 'Student') {
-        var navbarElementsList = document.querySelectorAll('.nav-item');
-        console.log("This is the list");
-        console.log(navbarElementsList);
-        var totalLength = navbarElementsList.length;
-        console.log(navbarElementsList[totalLength - 1].classList);
-        // const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
-        // wait(1 * 1000).then(() => {
-        navbarElementsList[totalLength - 1].classList.add("d-none");
-        navbarElementsList[totalLength - 1].classList.add("disabled");
-        navbarElementsList[totalLength - 2].classList.add("d-none");
-        navbarElementsList[totalLength - 2].classList.add("disabled");
-        console.log(navbarElementsList[totalLength - 1].classList);
-        // })
-
 
     } else if (userType == 'Coordinator') {
-
-    } else if (userType == 'Professor') {
         var navbarElementsList = document.querySelectorAll('.nav-item');
         console.log("This is the list");
         console.log(navbarElementsList);
@@ -71,11 +55,13 @@ function UserDisplay(userType) {
         console.log(navbarElementsList[totalLength - 1].classList);
         // const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
         // wait(1 * 1000).then(() => {
-        navbarElementsList[totalLength - 1].classList.add("d-none");
-        navbarElementsList[totalLength - 1].classList.add("disabled");
-        navbarElementsList[totalLength - 2].classList.add("d-none");
-        navbarElementsList[totalLength - 2].classList.add("disabled");
+        navbarElementsList[totalLength - 1].classList.remove("d-none");
+        navbarElementsList[totalLength - 1].classList.remove("disabled");
+        navbarElementsList[totalLength - 2].classList.remove("d-none");
+        navbarElementsList[totalLength - 2].classList.remove("disabled");
         console.log(navbarElementsList[totalLength - 1].classList);
+    } else if (userType == 'Professor') {
+
     } else {
         alert('It seems that we detected that you are not an authorized user\nRedirecting you to Login Page');
         window.location.href = "../LoginPage/login.html";
@@ -104,6 +90,6 @@ const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 InitHomepage();
 var dataList = getDatabase("users");
 console.log(dataList);
-wait(1 * 1000).then(() => {
+wait(0.1 * 1000).then(() => {
     render();
 });
