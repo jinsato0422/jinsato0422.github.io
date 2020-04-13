@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <!-- Links to the stylesheet to make things beautiful -->
     <link rel="stylesheet" href="pickRecipient.css">
 
@@ -15,7 +17,7 @@
 
 
 <body>
-    <!-- NavBar -->
+    <!-- Navbar -->
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">JJREY's Scholarship</a>
@@ -73,39 +75,36 @@
         <!-- Label talking about highlighting of shorlisted stuff -->
         <label id="shortlistInfo"> Shortlisted scholarships/candidates are highlighted in red. </label>
 
-        <!-- Button to return to main -->
-        <input type="button" id="returnToMain" value="Return to Main">r
-
     </form>
 
 
     <!-- Second form that outlines all the information about a particular candidate. Currently has placeholders
 	for changes in JavaScript. The above return to main button is added to this form at runtime-->
-	<form name="candidateInformationForm" id="candidateInformationForm">
-		<h1> Applicant Information: </h1>
-		<label id = "nameLabel"> Applicant Name: </label>
-		<label id = "name"> applicantName </label><br>
-		<br>
-		<label id = "idLabel"> Applicant Student ID: </label>
-		<label id = "id"> applicantID </label><br>
-		<br>
-		<label id = "gpaLabel"> Applicant GPA: </label>
-		<label id = "gpa"> applicantGPA </label><br>
-		<br>
-		<label id = "degreeLabel"> Applicant Degree Stream: </label>
-		<label id = "degree"> applicantDegree</label><br>
-		<br><br><br>
-		
-		<!-- Buttons for potential actions the scholarship coordinator can partake in -->
-		<input type = "button" id = "transcript" value = "View Transcript" onclick = viewTranscript()>
-		<input type = "button" id = "supportingDoc" value = "View Supporting Documents" onclick = viewSupportingDoc()>
-		<br><br>
-		<input type = "button" id = "select" value = "Select Applicant" onclick= selectApplicant()>
-		<input type = "button" id = "shortlist" value = "Shortlist Applicant" onclick= shortlistApplicant()>
-		<br><br>
-		<input type = "button" id = "return" value = "Return To Applicants" onclick= returnToApplicants()>
-	</form>
-	
+    <form name="candidateInformationForm" id="candidateInformationForm">
+        <h1> Applicant Information: </h1>
+        <label id="nameLabel"> Applicant Name: </label>
+        <label id="name"> applicantName </label><br>
+        <br>
+        <label id="idLabel"> Applicant Student ID: </label>
+        <label id="id"> applicantID </label><br>
+        <br>
+        <label id="gpaLabel"> Applicant GPA: </label>
+        <label id="gpa"> applicantGPA </label><br>
+        <br>
+        <label id="degreeLabel"> Applicant Degree Stream: </label>
+        <label id="degree"> applicantDegree</label><br>
+        <br><br><br>
+
+        <!-- Buttons for potential actions the scholarship coordinator can partake in -->
+        <input type="button" id="transcript" value="View Transcript" onclick=v iewTranscript()>
+        <input type="button" id="supportingDoc" value="View Supporting Documents" onclick=v iewSupportingDoc()>
+        <br><br>
+        <input type="button" id="select" value="Select Applicant" onclick=s electApplicant()>
+        <input type="button" id="shortlist" value="Shortlist Applicant" onclick=s hortlistApplicant()>
+        <br><br>
+        <input type="button" id="return" value="Return To Applicants" onclick=r eturnToApplicants()>
+    </form>
+
     <form name="candidateInformationForm" id="candidateInformationForm">
         <h1> Applicant Information: </h1>
         <label id="nameLabel"> Applicant Name: </label>
@@ -147,13 +146,13 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.firestore();
+        const db = firebase.firestore();
     </script>
-
-    <script src="Homepage.js"></script>
+    <!-- displays corresponding to the user -->
+    <script src="../Homepage/Homepage.js"></script>
     <!-- Links to the script needed to reset the password -->
     <script src="pickRecipient.js"></script>
-    <!-- Links to the script to return to the main page with appropriate commands if user wishes to return to main -->
-    <script src="../ReturnToMain/returnToMain.js"></script>
+
 
 </body>
 
