@@ -11,6 +11,8 @@ var availableScholarships;
 var currentScholarship;
 var currentCandidate;
 
+var queryString;
+
 
 initiateProgram();
 
@@ -38,6 +40,10 @@ function initiateProgram() {
         gpa: document.getElementById("gpa"),
         degree: document.getElementById("degree")
     }
+	
+	//Used for reloading pages
+	queryString = decodeURIComponent(window.location.search);
+    queryString = queryString.substring(1);
 
     //Hide the candidate information until a candidate is selected
     candidateInformationPane.pane.style.display = "none";
@@ -295,9 +301,7 @@ function displayApplicantInfo() {
 
 /* Goes back to the application selection page by reloading the page */
 function returnToApplicants() {
-	var queryString = decodeURIComponent(window.location.search);
-    queryString = queryString.substring(1);
-	
+
     window.location.href = "pickRecipient.html?" + queryString;
 }
 
@@ -376,7 +380,7 @@ function processApplicantListing(listingType) {
                     alert("You have successfully shortlisted " + currentCandidate.name + " for the " +
                         currentScholarship.data().name + ". You will now be redirected to the scholarship selection page.");
 
-                    window.location.href = "../PickRecipientPage/pickRecipient.html";
+                    window.location.href = "../PickRecipientPage/pickRecipient.html?" + queryString;
                 });
             } else {
                 //Recieved scholarship, email needs to be sent
@@ -402,7 +406,7 @@ function sendConfirmationEmail() {
     }).then(function() {
         alert("An email has been sent to " + currentCandidate.name + " confirming their scholarship offer." +
             " You will now be redirected to continue selecting scholarship recipients");
-        window.location.href = "../PickRecipientPage/pickRecipient.html";
+        window.location.href = "../PickRecipientPage/pickRecipient.html?" + queryString;
     });
 
 }
@@ -433,9 +437,5 @@ function viewSupportingDoc() {
 /* Resets the page, by sending error message and reloads if there is an error */
 function resetPage() {
     alert("It seems that your selection has produced an error, please try again");
-	var queryString = decodeURIComponent(window.location.search);
-    queryString = queryString.substring(1);
-	console.log (queryString);
-	
     window.location.href = "../PickRecipientPage/pickRecipient.html?" + queryString;
 }
