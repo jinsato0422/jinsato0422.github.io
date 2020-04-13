@@ -1,3 +1,4 @@
+// Finds the user 
 function findUser() {
     var queryString = decodeURIComponent(window.location.search);
     queryString = queryString.substring(1);
@@ -32,7 +33,7 @@ function render() {
     }
 }
 
-
+// gets the database of the argument and stores into a list
 function getDatabase(name) {
     var databaseList = []
     db.collection(name).get().then((querySnapshot) => {
@@ -44,6 +45,7 @@ function getDatabase(name) {
     return databaseList;
 }
 
+// Checks if the user is vaild
 function UserDisplay(userType) {
     if (userType == 'Student') {
         if (document.querySelector('#apply') != null) {
@@ -71,6 +73,7 @@ function UserDisplay(userType) {
     }
 }
 
+// sets the links and buttons
 function InitHomepage() {
     var navbarElementsList = document.querySelectorAll('.nav-link');
     navbarElementsList[0].setAttribute('href', "../HomePage/HomePage.html?" + findUser());
