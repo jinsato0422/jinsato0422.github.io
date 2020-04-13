@@ -3,6 +3,9 @@
 <head>
     <!-- Links to the stylesheet to make things beautiful -->
     <link rel="stylesheet" href="pickRecipient.css">
+	 <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 
     <!-- The core Firebase JS SDK that is given by Firebase to link to the database -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
@@ -10,13 +13,14 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
     <!-- A link to the smtp an emailing service that sends emails giving a password requiest -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-
+	
 </head>
 
 
 <body>
     <!-- NavBar -->
     <div class="container">
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">JJREY's Scholarship</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,11 +56,11 @@
 	telling whet it does and a header for the scholarship seletion from available scholarships. Two
 	empty selection panes are present in the form to select for first the scholarship than the candidate-->
     <form name="mainform" id="mainform">
-        <h1> Scholarship Recipient Selection: </h1>
+        <h2> Scholarship Recipient Selection: </h2>
         <label id="selectionHeader"> Select a Scholarship: </label> <br>
 
         <!-- Select for the scholarship -->
-        <select id="availableScholarships" onchange=d isplayCandidates()>
+        <select id="availableScholarships" onchange=displayCandidates()>
 			<option value="" disabled selected>Select a scholarship</option>
 		</select>
         <br><br>
@@ -64,7 +68,7 @@
         <!-- Select for the candidate -->
         <div class="applicants" id="applicantsPane">
             <label id="applicantsHeader"> Select a Candidate to Review Application: </label>
-            <select id="applicants" onchange=d isplayApplicantInfo()>
+            <select id="applicants" onchange=displayApplicantInfo()>
 				<option value= "" disabled selected> Select a candidate </option>
 			</select>
             <br><br>
@@ -73,8 +77,6 @@
         <!-- Label talking about highlighting of shorlisted stuff -->
         <label id="shortlistInfo"> Shortlisted scholarships/candidates are highlighted in red. </label>
 
-        <!-- Button to return to main -->
-        <input type="button" id="returnToMain" value="Return to Main">r
 
     </form>
 
@@ -82,7 +84,7 @@
     <!-- Second form that outlines all the information about a particular candidate. Currently has placeholders
 	for changes in JavaScript. The above return to main button is added to this form at runtime-->
 	<form name="candidateInformationForm" id="candidateInformationForm">
-		<h1> Applicant Information: </h1>
+		<h2> Applicant Information: </h2>
 		<label id = "nameLabel"> Applicant Name: </label>
 		<label id = "name"> applicantName </label><br>
 		<br>
@@ -107,7 +109,7 @@
 	</form>
 	
     <form name="candidateInformationForm" id="candidateInformationForm">
-        <h1> Applicant Information: </h1>
+        <h2> Applicant Information: </h2>
         <label id="nameLabel"> Applicant Name: </label>
         <label id="name"> applicantName </label><br>
         <br>
@@ -147,13 +149,12 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.firestore();
+		const db = firebase.firestore();
     </script>
 
-    <script src="Homepage.js"></script>
+    <script src="../Homepage/Homepage.js"></script>
     <!-- Links to the script needed to reset the password -->
     <script src="pickRecipient.js"></script>
-    <!-- Links to the script to return to the main page with appropriate commands if user wishes to return to main -->
-    <script src="../ReturnToMain/returnToMain.js"></script>
 
 </body>
 

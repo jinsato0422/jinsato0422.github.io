@@ -1,4 +1,5 @@
 
+
 /* Sets up the alignment of the pretty green backgroup */
 body{
 	background-image: url('background.jpg');
@@ -30,7 +31,7 @@ body{
 
 /* Sets the main header in the center of the screen and changes the font size of
    this header */
-h1{
+h2{
 	text-align: center;
 	font-size: 30;
 }
@@ -45,7 +46,7 @@ label{
 /* Sets up the alignment and font of the scholarship and participant select panels */
 select{
 	margin-top: 5px;
-	width: 500px;
+	width: 375px;
 	font-size: 18;
 }
 
@@ -126,4 +127,17 @@ input{
 
 #return{
 	margin-left: 135px;
+}
+
+
+h1 {
+    color: blue;
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+a:not([href]):not([tabindex]) {
+    color: white;
 }
