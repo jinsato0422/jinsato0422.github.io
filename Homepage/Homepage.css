@@ -13,3 +13,7 @@ h1 {
 .jumbotron {
     text-align: center;
 }
+
+a:not([href]):not([tabindex]) {
+    color: white;
+}

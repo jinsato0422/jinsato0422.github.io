@@ -94,6 +94,10 @@ function InitHomepage() {
     if (document.querySelector('#apply') != null) {
         document.querySelector('#apply').setAttribute("onclick", "window.location.href ='../ApplyPage/applicationform.html?" + findUser() + "';");
     }
+    if (document.querySelector('#learn') != null) {
+        document.querySelector('#learn').setAttribute("onclick", "window.location.href ='../ScholarshipPage/ScholarshipPage.html?" + findUser() + "';");
+    }
+
 }
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
