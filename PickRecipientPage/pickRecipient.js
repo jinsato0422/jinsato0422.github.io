@@ -275,12 +275,6 @@ function displayApplicantInfo(){
 		mainForm.style.display = "none";
 		candidateInformationPane.pane.style.display = "block";
 		
-		//Move the return to main button to this form and put in center
-		var mainButton = document.getElementById("returnToMain");
-		
-		mainButton.style.marginLeft = 50;
-		mainButton.style.marginTop = 0;
-		candidateInformationPane.pane.appendChild(mainButton);
 
 		//Set all the information appropriately
 		candidateInformationPane.name.innerHTML = candidateName;
@@ -420,6 +414,18 @@ function setEmailText(){
 	" accept your scholarship offer! <br> Sincerely, <br> University of Saskatchewan, <br> Office of the Registrar";
 	
 	return emailText;
+}
+
+
+/* Opens the current candidate's saved transcript in a new tab */
+function viewTranscript(){
+	window.open("../Documents/Transcripts/" + currentCandidate.id + "ts.pdf");
+}
+
+
+/* Opens the current candidate's saved supporting documentation in a new tab */
+function viewSupportingDoc(){
+	window.open("../Documents/SupportingDoc/" + currentCandidate.id + "sd.pdf");
 }
 	
 	
