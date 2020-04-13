@@ -4,12 +4,17 @@ var unaccepted;
 
 removeUnaccepted();
 
+/* Removes scholarship offers if they have not been accepted after 2 weeks of the offer. Called
+   every time the login page is accessed*/
 function removeUnaccepted(){
 	console.log(currentDate);
 	unaccepted = new Array();
 	findUnacceptedApplications();
 }
 
+
+/* Parses the database for scholarship offers that have passed their scholarship offer date,
+   calls the functions to remove the scholarship offers */
 function findUnacceptedApplications(){
 	var acceptanceData;
 	
@@ -32,7 +37,9 @@ function findUnacceptedApplications(){
 	
 }
 
-
+/* Removes the application for a scholarship that has not been accepted after two weeks 
+   from the database so that the scholarship coordinator does not try to make the offer
+   again */
 function removeApplication(){
 	unaccepted.forEach(function(toRemove){
 		database.collection('Scholarship Database').doc(toRemove.scholarshipID)
@@ -54,6 +61,8 @@ function removeApplication(){
 	});
 }
 
+
+/* Removes the offer from the offer section of the scholarship database */
 function removeAcceptance(){
 	unaccepted.forEach(function(toRemove){
 		database.collection('offers').doc(toRemove.offerID).delete();

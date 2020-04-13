@@ -14,28 +14,40 @@
 </head>
 
 
-<!-- Form made with two headers and -->
-
 <body>
+	<!-- Form outlining the potential scholarships that may be selected, has a header for the page
+	telling whet it does and a header for the scholarship seletion from available scholarships. Two
+	empty selection panes are present in the form to select for first the scholarship than the candidate-->
     <form name="mainform" id="mainform">
         <h1> Scholarship Recipient Selection: </h1>
         <label id = "selectionHeader"> Select a Scholarship: </label> <br>
+		
+		<!-- Select for the scholarship -->
 		<select id="availableScholarships" onchange = displayCandidates()>
 			<option value="" disabled selected>Select a scholarship</option>
 		</select>
 		<br><br>
 		
+		<!-- Select for the candidate -->
 		<div class = "applicants" id = "applicantsPane">
 			<label id = "applicantsHeader"> Select a Candidate to Review Application: </label>
 			<select id = "applicants" onchange = displayApplicantInfo()>
 				<option value= "" disabled selected> Select a candidate </option>
 			</select>
+			<br><br>
         </div>
+		
+		<!-- Label talking about highlighting of shorlisted stuff -->
+		<label id = "shortlistInfo"> Shortlisted scholarships/candidates are highlighted in red. </label>
+		
+		<!-- Button to return to main -->
 		<input type = "button" id = "returnToMain" value = "Return to Main">
 
     </form>
 	
 	
+	<!-- Second form that outlines all the information about a particular candidate. Currently has placeholders
+	for changes in JavaScript. The above return to main button is added to this form at runtime-->
 	<form name="candidateInformationForm" id="candidateInformationForm">
 		<h1> Applicant Information: </h1>
 		<label id = "nameLabel"> Applicant Name: </label>
@@ -50,18 +62,17 @@
 		<label id = "degreeLabel"> Applicant Degree Stream: </label>
 		<label id = "degree"> applicantDegree</label><br>
 		<br><br><br>
+		
+		<!-- Buttons for potential actions the scholarship coordinator can partake in -->
 		<input type = "button" id = "transcript" value = "View Transcript">
 		<input type = "button" id = "supportingDoc" value = "View Supporting Documents">
 		<br><br>
-		<input type = "button" id = "return" value = "Return To Applicants" onclick= returnToApplicants()>
 		<input type = "button" id = "select" value = "Select Applicant" onclick= selectApplicant()>
-		<input type = "button" id = "returnToMain" value = "Return to Main">
+		<input type = "button" id = "shortlist" value = "Shortlist Applicant" onclick= shortlistApplicant()>
+		<br><br>
+		<input type = "button" id = "return" value = "Return To Applicants" onclick= returnToApplicants()>
 	</form>
 	
-
-	
-	
-
 
     <script>
         // Our apps Firease configuration given by Firebase
