@@ -136,21 +136,28 @@ the successful login page is loaded.*/
 function verifyValidSubmission(){
 	event.preventDefault();
 	
+	//Submission must have a valid password, email, ID and the first and last name must not be empty
 	if (!(checkPasswordsMatch() && validateEmail() && validateID())||
 			(fname.value == "") || (lname.value == "")){
 		alert("One or more fields has invalid information, please try again");
 	}
+	//If someone is the admin, the admin password must be correct to proceed
 	else if (admin){
 		verifyAdminPassword();
 	}
+	//If everything is correct the account is created
 	else{
 		writeUserData();
 	}
 }	
 
-
+/* Looks to find if someone has selected the admin option in the select displaying
+   potential account creation types. If someone has selected the administration option
+   from potential account creation types, displays the box requesting the administration
+   password */
 function checkIfCoordinator(){
 	adminPWStyle = document.getElementById("adminPW");
+	
 	if (userType.value == "Coordinator"){
 		adminPWStyle.style.display = "inline-block";
 		admin = true;
@@ -161,13 +168,20 @@ function checkIfCoordinator(){
 }
 
 
+
+/* Verifies the administration password if a request for the password is made by 
+   comparing the inputted password to the administration password stored in the
+   database */
 function verifyAdminPassword(){
 	
 	const enteredPassword = document.getElementById("adminPWInput").value;
 
+	//Parse for admin password in database
 	database.collection('administration').get().then((snapshot) => {
 		snapshot.docs.forEach(doc => {
 			if (doc.data().pw == enteredPassword) {
+				
+				//Admin password is correct so user data can be written
 				writeUserData();
 			}
 			else {
