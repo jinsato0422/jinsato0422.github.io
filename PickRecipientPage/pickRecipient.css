@@ -43,15 +43,6 @@ label {
 }
 
 
-/* Sets up the alignment and font of the scholarship and participant select panels */
-
-select {
-    margin-top: 5px;
-    width: 500px;
-    font-size: 18;
-}
-
-
 /* Turns off the display of the potential candidates until a scholarship is selected */
 
 .applicants {
@@ -106,16 +97,18 @@ select {
 
 /* Sets up the font and border formatting of all buttons in the applicant info form */
 
-input {
+
+/* input {
     font-size: 19;
     border: 0.5px solid black;
     border-radius: 2px;
-}
+} */
 
 
 /*The following css commands set up the alignment of the buttons on the selected applicant info form*/
 
-#transcript {
+
+/* #transcript {
     margin-left: 45px;
 }
 
@@ -133,4 +126,4 @@ input {
 
 #return {
     margin-left: 135px;
-}
+} */
