@@ -156,6 +156,7 @@ function toggleScholarship() {
 
 }
 
+// sets event listener to the checkboxes of the filter box
 function setEventListenerToCheckbox(checkbox) {
     //checkbox listener 
     checkbox.addEventListener('change', function(e) {
@@ -304,6 +305,8 @@ function setEventListenerToCheckbox(checkbox) {
     })
 }
 
+
+//main
 var checkedboxes = [];
 const scholarshipList = document.getElementsByClassName('scholarship');
 

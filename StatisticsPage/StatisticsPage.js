@@ -1,9 +1,7 @@
+//Gets the tag that we want to configure 
 var statisticList = document.querySelector('#statistic-List');
 
-
-// This retrieves the scholarship data from Firebase
-
-
+// This retrieves the offers data from Firebase and stores in an array
 function getScholarshipAccepted() {
     db.collection("offers").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -25,6 +23,7 @@ function getScholarshipAccepted() {
     });
 }
 
+// This retrieves the Scholarship data from Firebase and calls renderStatistics
 function getAllApplicantAmountForEachScholarship() {
     db.collection("Scholarship Database").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -37,6 +36,7 @@ function getAllApplicantAmountForEachScholarship() {
     });
 }
 
+// This function creates the statistics Page 
 function renderStatistics(doc) {
 
     let name = document.createElement('div');
@@ -63,9 +63,6 @@ function renderStatistics(doc) {
         }
     })
 
-
-
-    //These are attaching all the components of the boxes into one 
     statisticList.appendChild(name);
     statisticList.appendChild(acceptanceRate);
 }
@@ -74,7 +71,3 @@ function renderStatistics(doc) {
 var AcceptedScholarshipList = {};
 getScholarshipAccepted();
 getAllApplicantAmountForEachScholarship();
-const waitStatistics = ms => new Promise(resolve => setTimeout(resolve, ms));
-waitStatistics(0.5 * 1000).then(() => {
-    console.log(AcceptedScholarshipList)
-})
