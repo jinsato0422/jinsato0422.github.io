@@ -32,36 +32,20 @@
                     <li class="nav-item">
                         <a class="nav-link">Stats</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item disabled d-none">
                         <a class="nav-link">Add New Scholarship</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link">offer Scholarship</a>
+                    <li class="nav-item disabled d-none">
+                        <a class="nav-link">Offer Scholarship</a>
                     </li>
-
-
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Featured Scholarship
-			  </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">National Wide</a>
-                            <a class="dropdown-item" href="#">University Wide</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Specific to Faculty</a>
-                        </div>
-                    </li> -->
-                    <!-- <li class="nav-item">
-			  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-			</li> -->
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search for Scholarship" aria-label="Search"> -->
                     <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="window.location.href ='../LoginPage/login.html?'">Logout</button>
                 </form>
             </div>
         </nav>
     </div>
+
 
     <div class="jumbotron text-center">
         <h1>Statisic Page</h1>
@@ -118,8 +102,9 @@
         //Get the database
         var db = firebase.firestore();
     </script>
-    <script src="StatisticsPage.js"></script>
     <script src="../Homepage/Homepage.js"></script>
+    <script src="StatisticsPage.js"></script>
+
 
 </body>
 

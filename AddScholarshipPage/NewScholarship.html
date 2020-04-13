@@ -11,6 +11,38 @@
 </head>
 
 <body>
+    <!-- NavBar -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">JJREY's Scholarship</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Featured Scholarship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Stats</a>
+                    </li>
+                    <li class="nav-item disabled d-none">
+                        <a class="nav-link">Add New Scholarship</a>
+                    </li>
+                    <li class="nav-item disabled d-none">
+                        <a class="nav-link">Offer Scholarship</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="window.location.href ='../LoginPage/login.html?'">Logout</button>
+                </form>
+            </div>
+        </nav>
+    </div>
     <h4>
         Fill out the following to add a new scholarship:
     </h4>
@@ -167,7 +199,7 @@
         timestampsInSnapshots: true
     })
 </script>
-
+<script src="Homepage.js"></script>
 <script src="NewScholarship.js"></script>
 
 </html>
