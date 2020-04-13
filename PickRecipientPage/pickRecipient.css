@@ -1,3 +1,4 @@
+
 /* Sets up the alignment of the pretty green backgroup */
 
 body {
@@ -16,7 +17,7 @@ body {
     width: 500px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 150px;
+    margin-top: 100px;
     background-color: white;
     padding-right: 50px;
     padding-left: 50px;
@@ -29,16 +30,22 @@ body {
 
 /* Sets the main header in the center of the screen and changes the font size of
    this header */
-
-h1 {
-    text-align: center;
-    font-size: 30;
+h2{
+	text-align: center;
+	font-size: 30;
 }
 
 
-/* Sets the correct font size for all text that is not a header */
 
-label {
+/* Sets the correct font size for all text that is not a header */
+/* Sets up the alignment and font of the scholarship and participant select panels */
+select{
+	margin-top: 5px;
+	width: 375px;
+	font-size: 18;
+}
+
+label{
     font-size: 20;
 }
 
@@ -62,10 +69,10 @@ label {
  with an approrpriate background and border*/
 
 #candidateInformationForm {
-    width: 500px;
+    width: 550px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 125px;
+    margin-top: 75px;
     background-color: white;
     padding-right: 50px;
     padding-left: 50px;
@@ -76,7 +83,7 @@ label {
 }
 
 
-/*The following css commands make all of the labels of the selected applicant info bold */
+/*The following css commands make all of the labels of the selected applicant info bold and align buttons */
 
 #nameLabel {
     font-weight: bold;
@@ -94,36 +101,18 @@ label {
     font-weight: bold;
 }
 
-
-/* Sets up the font and border formatting of all buttons in the applicant info form */
-
-
-/* input {
-    font-size: 19;
-    border: 0.5px solid black;
-    border-radius: 2px;
-} */
-
-
-/*The following css commands set up the alignment of the buttons on the selected applicant info form*/
-
-
-/* #transcript {
-    margin-left: 45px;
+#supportingDoc{
+	margin-left: 85px;
 }
 
-#supportingDoc {
-    margin-left: 25px;
+#shortlist{
+	margin-left: 150px;
 }
 
-#shortlist {
-    margin-left: 22px;
+#return{
+	margin-left: 130px;
 }
 
-#select {
-    margin-left: 85px;
-}
 
-#return {
-    margin-left: 135px;
-} */
+
+
