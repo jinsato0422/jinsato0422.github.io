@@ -8,71 +8,104 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
     <!-- A secondary Firbase JS SDK that allows us to call firebase commands -->
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-	<!-- A link to the smtp an emailing service that sends emails giving a password requiest -->
+    <!-- A link to the smtp an emailing service that sends emails giving a password requiest -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
 </head>
 
 
 <body>
-	<!-- Form outlining the potential scholarships that may be selected, has a header for the page
+    <!-- NavBar -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">JJREY's Scholarship</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Featured Scholarship</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Stats</a>
+                    </li>
+                    <li class="nav-item disabled d-none">
+                        <a class="nav-link">Add New Scholarship</a>
+                    </li>
+                    <li class="nav-item disabled d-none">
+                        <a class="nav-link">Offer Scholarship</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="window.location.href ='../LoginPage/login.html?'">Logout</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Form outlining the potential scholarships that may be selected, has a header for the page
 	telling whet it does and a header for the scholarship seletion from available scholarships. Two
 	empty selection panes are present in the form to select for first the scholarship than the candidate-->
     <form name="mainform" id="mainform">
         <h1> Scholarship Recipient Selection: </h1>
-        <label id = "selectionHeader"> Select a Scholarship: </label> <br>
-		
-		<!-- Select for the scholarship -->
-		<select id="availableScholarships" onchange = displayCandidates()>
+        <label id="selectionHeader"> Select a Scholarship: </label> <br>
+
+        <!-- Select for the scholarship -->
+        <select id="availableScholarships" onchange=d isplayCandidates()>
 			<option value="" disabled selected>Select a scholarship</option>
 		</select>
-		<br><br>
-		
-		<!-- Select for the candidate -->
-		<div class = "applicants" id = "applicantsPane">
-			<label id = "applicantsHeader"> Select a Candidate to Review Application: </label>
-			<select id = "applicants" onchange = displayApplicantInfo()>
+        <br><br>
+
+        <!-- Select for the candidate -->
+        <div class="applicants" id="applicantsPane">
+            <label id="applicantsHeader"> Select a Candidate to Review Application: </label>
+            <select id="applicants" onchange=d isplayApplicantInfo()>
 				<option value= "" disabled selected> Select a candidate </option>
 			</select>
-			<br><br>
+            <br><br>
         </div>
-		
-		<!-- Label talking about highlighting of shorlisted stuff -->
-		<label id = "shortlistInfo"> Shortlisted scholarships/candidates are highlighted in red. </label>
-		
-		<!-- Button to return to main -->
-		<input type = "button" id = "returnToMain" value = "Return to Main">
+
+        <!-- Label talking about highlighting of shorlisted stuff -->
+        <label id="shortlistInfo"> Shortlisted scholarships/candidates are highlighted in red. </label>
+
+        <!-- Button to return to main -->
+        <input type="button" id="returnToMain" value="Return to Main">
 
     </form>
-	
-	
-	<!-- Second form that outlines all the information about a particular candidate. Currently has placeholders
+
+
+    <!-- Second form that outlines all the information about a particular candidate. Currently has placeholders
 	for changes in JavaScript. The above return to main button is added to this form at runtime-->
-	<form name="candidateInformationForm" id="candidateInformationForm">
-		<h1> Applicant Information: </h1>
-		<label id = "nameLabel"> Applicant Name: </label>
-		<label id = "name"> applicantName </label><br>
-		<br>
-		<label id = "idLabel"> Applicant Student ID: </label>
-		<label id = "id"> applicantID </label><br>
-		<br>
-		<label id = "gpaLabel"> Applicant GPA: </label>
-		<label id = "gpa"> applicantGPA </label><br>
-		<br>
-		<label id = "degreeLabel"> Applicant Degree Stream: </label>
-		<label id = "degree"> applicantDegree</label><br>
-		<br><br><br>
-		
-		<!-- Buttons for potential actions the scholarship coordinator can partake in -->
-		<input type = "button" id = "transcript" value = "View Transcript">
-		<input type = "button" id = "supportingDoc" value = "View Supporting Documents">
-		<br><br>
-		<input type = "button" id = "select" value = "Select Applicant" onclick= selectApplicant()>
-		<input type = "button" id = "shortlist" value = "Shortlist Applicant" onclick= shortlistApplicant()>
-		<br><br>
-		<input type = "button" id = "return" value = "Return To Applicants" onclick= returnToApplicants()>
-	</form>
-	
+    <form name="candidateInformationForm" id="candidateInformationForm">
+        <h1> Applicant Information: </h1>
+        <label id="nameLabel"> Applicant Name: </label>
+        <label id="name"> applicantName </label><br>
+        <br>
+        <label id="idLabel"> Applicant Student ID: </label>
+        <label id="id"> applicantID </label><br>
+        <br>
+        <label id="gpaLabel"> Applicant GPA: </label>
+        <label id="gpa"> applicantGPA </label><br>
+        <br>
+        <label id="degreeLabel"> Applicant Degree Stream: </label>
+        <label id="degree"> applicantDegree</label><br>
+        <br><br><br>
+
+        <!-- Buttons for potential actions the scholarship coordinator can partake in -->
+        <input type="button" id="transcript" value="View Transcript">
+        <input type="button" id="supportingDoc" value="View Supporting Documents">
+        <br><br>
+        <input type="button" id="select" value="Select Applicant" onclick=s electApplicant()>
+        <input type="button" id="shortlist" value="Shortlist Applicant" onclick=s hortlistApplicant()>
+        <br><br>
+        <input type="button" id="return" value="Return To Applicants" onclick=r eturnToApplicants()>
+    </form>
+
 
     <script>
         // Our apps Firease configuration given by Firebase
@@ -91,10 +124,11 @@
         const database = firebase.firestore();
     </script>
 
+    <script src="Homepage.js"></script>
     <!-- Links to the script needed to reset the password -->
     <script src="pickRecipient.js"></script>
-	<!-- Links to the script to return to the main page with appropriate commands if user wishes to return to main -->
-	<script src="../ReturnToMain/returnToMain.js"></script>
+    <!-- Links to the script to return to the main page with appropriate commands if user wishes to return to main -->
+    <script src="../ReturnToMain/returnToMain.js"></script>
 
 </body>
 
