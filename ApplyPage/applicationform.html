@@ -168,6 +168,13 @@
             width: 16%;
             margin: 8px 0;
         }
+		
+		#availableScholarships{
+			background-color: #E8E2E1;
+            padding: 4px;
+            width: 16%;
+            margin: 8px 0;
+		}
         /*Styles the labels*/
         
         .label {
@@ -323,14 +330,13 @@
                         <option value = "true">True</option>
                         <option value = "false">False</option>
                     </select><br>
-                    <br>
 
                     <!--Label and input for the scholarships the application is for-->
                     <label class="label availableScholarships" id="selectionHeader" style="padding: 8px 20px"> Select up to 4 Scholarship: </label>&nbsp&nbsp&nbsp&nbsp
                     <!-- Select for the scholarship -->
                     <select class='mutliple-formatted' id="availableScholarships" multiple style="width: 25%">
-			            <option value="" disabled selected>Select a scholarship</option>
-                    </select>
+			            <option value="" disabled selected>Select up to four scholarships</option>
+                    </select><br><br><br>
                     <br>
 
                     <!--Label and input for uploading transcript-->
@@ -342,8 +348,7 @@
                     <label for="otherdocs" class="label otherdocs" style="cursor: pointer">
                     <input type="file" id="otherdocs" name="otherdocs"/>
                     Upload Supporting Documents</label>
-                    <br>
-                    <br>
+                    <br><br><br>
 
                     <!--Input for submitting form-->
                     <input type="submit" value=Submit name="submit" onclick="fileUpload(event)">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
