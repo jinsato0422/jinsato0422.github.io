@@ -89,6 +89,11 @@ function InitHomepage() {
     navbarElementsList[2].setAttribute('href', "../StatisticsPage/StatisticsPage.html?" + findUser());
     navbarElementsList[3].setAttribute('href', "../AddScholarshipPage/NewScholarship.html?" + findUser());
     navbarElementsList[4].setAttribute('href', "../PickRecipientPage/pickRecipient.html?" + findUser());
+    console.log(document.querySelector('#apply'));
+
+    if (document.querySelector('#apply') != null) {
+        document.querySelector('#apply').setAttribute("onclick", "window.location.href ='../ApplyPage/applicationform.html?" + findUser() + "';");
+    }
 }
 const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 

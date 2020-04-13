@@ -71,7 +71,7 @@ function renderStatistics(doc) {
 }
 
 // Main 
-var AcceptedScholarshipList = { "Scholarship 1": 1 };
+var AcceptedScholarshipList = {};
 getScholarshipAccepted();
 getAllApplicantAmountForEachScholarship();
 const waitStatistics = ms => new Promise(resolve => setTimeout(resolve, ms));
