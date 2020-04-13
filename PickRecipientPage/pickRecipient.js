@@ -275,12 +275,6 @@ function displayApplicantInfo(){
 		mainForm.style.display = "none";
 		candidateInformationPane.pane.style.display = "block";
 		
-		//Move the return to main button to this form and put in center
-		var mainButton = document.getElementById("returnToMain");
-		
-		mainButton.style.marginLeft = 50;
-		mainButton.style.marginTop = 0;
-		candidateInformationPane.pane.appendChild(mainButton);
 
 		//Set all the information appropriately
 		candidateInformationPane.name.innerHTML = candidateName;
