@@ -421,6 +421,18 @@ function setEmailText(){
 	
 	return emailText;
 }
+
+
+/* Opens the current candidate's saved transcript in a new tab */
+function viewTranscript(){
+	window.open("../Documents/Transcripts/" + currentCandidate.id + "ts.pdf");
+}
+
+
+/* Opens the current candidate's saved supporting documentation in a new tab */
+function viewSupportingDoc(){
+	window.open("../Documents/SupportingDoc/" + currentCandidate.id + "sd.pdf");
+}
 	
 	
 /* Resets the page, by sending error message and reloads if there is an error */
