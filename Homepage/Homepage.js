@@ -46,7 +46,9 @@ function getDatabase(name) {
 
 function UserDisplay(userType) {
     if (userType == 'Student') {
-
+        if (document.querySelector('#apply') != null) {
+            document.querySelector('#apply').setAttribute("onclick", "window.location.href ='../ApplyPage/applicationform.html?" + findUser() + "';");
+        }
     } else if (userType == 'Coordinator') {
         var navbarElementsList = document.querySelectorAll('.nav-item');
         console.log("This is the list");
@@ -60,6 +62,7 @@ function UserDisplay(userType) {
         navbarElementsList[totalLength - 2].classList.remove("d-none");
         navbarElementsList[totalLength - 2].classList.remove("disabled");
         console.log(navbarElementsList[totalLength - 1].classList);
+        document.querySelector('#apply').classList.add('disabled');
     } else if (userType == 'Professor') {
 
     } else {
@@ -77,9 +80,6 @@ function InitHomepage() {
     navbarElementsList[4].setAttribute('href', "../PickRecipientPage/pickRecipient.html?" + findUser());
     console.log(document.querySelector('#apply'));
 
-    if (document.querySelector('#apply') != null) {
-        document.querySelector('#apply').setAttribute("onclick", "window.location.href ='../ApplyPage/applicationform.html?" + findUser() + "';");
-    }
     if (document.querySelector('#learn') != null) {
         document.querySelector('#learn').setAttribute("onclick", "window.location.href ='../ScholarshipPage/ScholarshipPage.html?" + findUser() + "';");
     }
