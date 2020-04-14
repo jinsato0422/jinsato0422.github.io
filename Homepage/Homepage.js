@@ -33,8 +33,10 @@ function render() {
 function getDatabase(name) {
     var databaseList = []
     db.collection(name).get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
             databaseList.push(doc.id);
         });
+    });
     return databaseList;
 }
 
