@@ -35,4 +35,6 @@ JJRey Scholarship System:
        Each scholarships are structured in a box shape, which includes a short description 
        and below there will be a "Learn More" button. This button toggles the hidden content of each box 
        which includes more information about the scholarships. 
-       Also, this page is linked to the Firebase database, which will automatically make the boxes for each scholarships in the database    
+       Also, this page is linked to the Firebase database, which will automatically make the boxes for each scholarships in the database  
+    6. Statistics.html
+       THis page we can view the acceptance rate for each scholarships.  
