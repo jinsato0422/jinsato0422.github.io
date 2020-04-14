@@ -2,6 +2,7 @@ var id
 var availableScholarships
 const form = document.querySelector('#application-form');
 
+/*Upload the transcript and supporting documents */
 function fileUpload(event) {
     var storageRef = firebase.storage().ref();
     var fileName_TS = form.s_id.value.toString(10).concat('_TS.pdf');
@@ -15,10 +16,12 @@ function fileUpload(event) {
     supdocRef.put(upFileSD);
 
 }
+
+
 var scholarshipSelectionPane = document.getElementById("availableScholarships");
 var scholarships = new Array();
 
-
+/* Display available scholarships on the screen */
 function renderScholarship(doc) {
     let opt = document.createElement('option');
 	
@@ -31,13 +34,15 @@ function renderScholarship(doc) {
 }
 
 
+/*Find potential scholarships to render on the screen */
 db.collection('Scholarship Database').get().then((snapshot) => {
     snapshot.docs.forEach(doc => {
         renderScholarship(doc)
     })
 })
 	
-	
+
+/*Submit scholarship application to the database */
 var scholarshipsSelected = [];
     //Saving data
 const waitScholarship = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -67,6 +72,7 @@ waitScholarship(0.5 * 1000).then(() => {
 })
 
 
+/*Update applications on the scholarship side of the database */
 function updateSubmissionOnScholarship(){
 	var id;
 	const lastScholarship = scholarshipsSelected[scholarshipsSelected.length - 1];
@@ -78,22 +84,10 @@ function updateSubmissionOnScholarship(){
 		db.runTransaction(function(transaction) {
 			transaction.get(data).then(function(doc) {
 
-				//Person has an existing shortlist/offer file in database
+				//There is an existing application in this person's name
 				if (doc.exists) {
-					var applications = doc.data().applicants;
-					var alreadyListed = false;
-
-					applications.forEach(item => {
-						//Already recieved offer/shortlist, do nothing
-						if (item == form.s_id.value) {
-							alreadyListed = true;
-						}
-					})
-
-					if (!alreadyListed) {
-						applications.push(form.s_id.value);
-
-						//Already has an existing file but not for this scholarship, add the scholarship
+					
+					//Rewrite existing application, can only apply once
 						return data.update({ applicants: applications }).then(function (){
 							if (selection == lastScholarship){	
 								sendConfirmation();
@@ -112,6 +106,7 @@ function updateSubmissionOnScholarship(){
 }
 
 
+/* Get the ID for a particular scholarship */
 function getScholarshipID(name){
 	var id;
 	scholarships.forEach(scholarship => {
@@ -124,6 +119,7 @@ function getScholarshipID(name){
 }
 
 
+/*Show that the scholarship form has been submitted */
 function sendConfirmation(){
 	alert("Form successfully submitted, you will now be redirected to the homepage");
 	

@@ -138,7 +138,7 @@ function displayCandidates() {
 
 
     //No candidates have applied
-    if (candidates.length === 0) {
+    if (candidates.length == 0) {
         candidateSelectionPane.header.innerText = "It seems that no one has applied for the " +
             scholarshipToFind + " at this time. \n\n Please select another scholarship " +
             "to view applicants.";
