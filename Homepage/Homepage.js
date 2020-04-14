@@ -35,7 +35,6 @@ function getDatabase(name) {
     db.collection(name).get().then((querySnapshot) => {
             databaseList.push(doc.id);
         });
-    })
     return databaseList;
 }
 
