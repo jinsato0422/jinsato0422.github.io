@@ -89,18 +89,15 @@ function updateSubmissionOnScholarship(){
 				if (doc.exists) {
 					
 					//Rewrite existing application, can only apply once
-						return data.update({ applicants: applications }).then(function (){
-							if (selection == lastScholarship){	
-								sendConfirmation();
-							}
-						});
-					} else {
-						return Promise;
-					}
+					return data.update({ applicants: applications }).then(function (){
+						if (selection == lastScholarship){	
+							sendConfirmation();
+						}
+					});
 
 				} 
 			});
-		})
+		});
 	});
 
 	
