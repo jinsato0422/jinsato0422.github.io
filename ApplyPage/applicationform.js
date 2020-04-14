@@ -49,7 +49,9 @@ var scholarshipsSelected = [];
 const waitScholarship = ms => new Promise(resolve => setTimeout(resolve, ms));
 waitScholarship(0.5 * 1000).then(() => {
     form.addEventListener('submit', (e) => {
+				
         e.preventDefault();
+		
 		scholarshipsSelected = $('#availableScholarships').val();
 		
 		if (scholarshipsSelected.length > 4){
@@ -69,6 +71,8 @@ waitScholarship(0.5 * 1000).then(() => {
 			});
 			updateSubmissionOnScholarship()
 		}
+				
+				
     })
 })
 
@@ -85,17 +89,35 @@ function updateSubmissionOnScholarship(){
 		db.runTransaction(function(transaction) {
 			transaction.get(data).then(function(doc) {
 
-				//There is an existing application in this person's name
-				if (doc.exists) {
-					
-					//Rewrite existing application, can only apply once
-					return data.update({ applicants: applications }).then(function (){
-						if (selection == lastScholarship){	
-							sendConfirmation();
-						}
-					});
+				transaction.get(data).then(function(doc) {
 
-				} 
+					//Person has an existing shortlist/offer file in database
+					if (doc.exists) {
+						var applications = doc.data().applicants;
+						var alreadyListed = false;
+
+						applications.forEach(item => {
+							//Already recieved offer/shortlist, do nothing
+							if (item == form.s_id.value) {
+								alreadyListed = true;
+							}
+						})
+
+						if (!alreadyListed) {
+							applications.push(form.s_id.value);
+
+							//Already has an existing file but not for this scholarship, add the scholarship
+							return data.update({ applicants: applications }).then(function (){
+								if (selection == lastScholarship){	
+									sendConfirmation();
+								}
+							});
+						} else {
+							return Promise;
+						}
+
+					} 
+				});
 			});
 		});
 	});
@@ -117,7 +139,7 @@ function getScholarshipID(name){
 }
 
 
-/*Show that the scholarship form has been submitted */
+/*Show that the application form has been submitted */
 function sendConfirmation(){
 	alert("Form successfully submitted, you will now be redirected to the homepage");
 	
@@ -127,4 +149,5 @@ function sendConfirmation(){
 	
 	window.location.href = "../Homepage/homepage.html?" + queryString;
 }
+
 
