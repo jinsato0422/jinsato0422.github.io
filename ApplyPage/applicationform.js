@@ -1,7 +1,9 @@
 var id
 var availableScholarships
+//References the application form
 const form = document.querySelector('#application-form');
 
+//Upload function for transcript and supporting doc
 function fileUpload(event) {
     var storageRef = firebase.storage().ref();
     var fileName_TS = form.s_id.value.toString(10).concat('_TS.pdf');
@@ -15,17 +17,14 @@ function fileUpload(event) {
     supdocRef.put(upFileSD);
 
 }
+//Showing scholarships as options after getting them from the database
 var scholarshipSelectionPane = document.getElementById("availableScholarships");
 var scholarships = new Array();
-
-
 function renderScholarship(doc) {
     let opt = document.createElement('option');
-	
 	var item = {name: doc.data().name,
 	id: doc.id}
 	scholarships.push(item);
-	
     opt.textContent = doc.data().name;
     scholarshipSelectionPane.add(opt);
 }
@@ -39,7 +38,7 @@ db.collection('Scholarship Database').get().then((snapshot) => {
 	
 	
 var scholarshipsSelected = [];
-    //Saving data
+    //Saving data into database
 const waitScholarship = ms => new Promise(resolve => setTimeout(resolve, ms));
 waitScholarship(0.5 * 1000).then(() => {
     form.addEventListener('submit', (e) => {
