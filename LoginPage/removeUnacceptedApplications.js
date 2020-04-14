@@ -7,7 +7,6 @@ removeUnaccepted();
 /* Removes scholarship offers if they have not been accepted after 2 weeks of the offer. Called
    every time the login page is accessed*/
 function removeUnaccepted(){
-	console.log(currentDate);
 	unaccepted = new Array();
 	findUnacceptedApplications();
 }
@@ -21,15 +20,37 @@ function findUnacceptedApplications(){
 	database.collection('offers').get().then((snapshot) => {
         snapshot.docs.forEach(offer => {
 			acceptanceData = offer.data();
+			dates = acceptanceData.acceptDate;
+			offers = acceptanceData.scholarshipID;
+			accepted = acceptanceData.acceptedScholarships;
 			
-			if(acceptanceData.acceptDate < currentDate){			
-				unaccepted.push({
-					id: acceptanceData.id,
-					scholarshipID: acceptanceData.scholarshipID,
-					offerID: offer.id
-				})
+			//Parse through all scholarships to see if their acceptance date is before todays date
+			for(var scholarshipNum = 0; scholarshipNum < dates.length; scholarshipNum++){
+				if(dates[scholarshipNum] < currentDate){
+					const scholarshipName = offers[scholarshipNum];
+					var isAccepted = false;
+					
+					//Check to see if scholarship has been accepted
+					accepted.forEach(acceptance => {
+						if (acceptance == scholarshipName){
+							isAccepted = true;
+						}
+					});
+					
+					
+					//Has not been accepted, needs to be removed
+					if (!isAccepted){
+						unaccepted.push({
+						id: acceptanceData.id,
+						scholarshipID: scholarshipName,
+						offerID: offer.id,
+						arrayLocation: scholarshipNum
+						})
+					}
+				}
 			}
         })
+		
 		
 		removeApplication();
 		removeAcceptance();
@@ -65,7 +86,16 @@ function removeApplication(){
 /* Removes the offer from the offer section of the scholarship database */
 function removeAcceptance(){
 	unaccepted.forEach(function(toRemove){
-		database.collection('offers').doc(toRemove.offerID).delete();
+		database.collection('offers').doc(toRemove.id)
+			.get().then(scholarship =>{
+					const updatedOffers = scholarship.data().scholarshipID.splice(toRemove.arrayLocation-1,1);
+					const updatedDates = scholarship.data().acceptDate.splice(toRemove.arrayLocation-1,1);
+					
+					database.collection('offers').doc(toRemove.id).update({
+						acceptDate: updatedDates,
+						scholarshipID: updatedOffers
+					});
+		});
 	});
 
 }
