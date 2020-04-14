@@ -433,13 +433,36 @@ function setEmailText() {
 
 /* Opens the current candidate's saved transcript in a new tab */
 function viewTranscript() {
-    window.open("../Documents/Transcripts/" + currentCandidate.id + "ts.pdf");
+    var fileName_TS = currentCandidate.id + "_TS.pdf";
+    var storageRef = firebase.storage().ref()
+    var transcriptStorageRef = storageRef.child(fileName_TS)
+    transcriptStorageRef.getDownloadURL().then(function(url) {
+        var xhr = new XMLHttpRequest();
+        if("withCredentials" in xhr){
+            xhr.open('GET', url, true);
+        }
+        xhr.responseType = 'blob';
+        xhr.onload = function(event) {
+            var blob = xhr.response;
+        };
+        xhr.send();
 }
 
 
 /* Opens the current candidate's saved supporting documentation in a new tab */
 function viewSupportingDoc() {
-    window.open("../Documents/SupportingDoc/" + currentCandidate.id + "sd.pdf");
+    var fileName_SD = currentCandidate.id + "_SD.pdf";
+    var storageRef = firebase.storage().ref()
+    var supdocStorageRef = storageRef.child(fileName_SD)
+    supdocStorageRef.getDownloadURL().then(function(url) {
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob';
+        xhr.onload = function(event) {
+            var blob = xhr.response;
+        };
+        xhr.open('GET', url);
+        xhr.send();
+    })
 }
 
 
