@@ -1,0 +1,53 @@
+body {
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h6 {
+    padding: 10px;
+}
+
+p {
+    font-size: 1.5em;
+    margin: 15px;
+}
+
+.btn {
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+div.tableText {
+    line-height: 2;
+    padding-left: 15px;
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 0px
+}
+
+.jumbotron {
+    background-color: #69E23C;
+}
+
+.card {
+    margin: 5px;
+}
+
+.card-header {
+    background-color: #1D8348;
+    color: white;
+}
+
+.card-body {
+    padding: 0;
+}
+
+a {
+    color: white;
+}
