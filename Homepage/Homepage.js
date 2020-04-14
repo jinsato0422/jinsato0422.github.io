@@ -52,11 +52,12 @@ function UserDisplay(userType) {
         if (document.querySelector('#apply') != null) {
             document.querySelector('#apply').setAttribute("onclick", "window.location.href ='../ApplyPage/applicationform.html?" + findUser() + "';");
         }
-
+        //show apply 
         navbarElementsList[2].classList.remove("d-none");
         navbarElementsList[2].classList.remove("disabled");
-        navbarElementsList[3].classList.remove("d-none");
-        navbarElementsList[3].classList.remove("disabled");
+        //show status
+        navbarElementsList[4].classList.remove("d-none");
+        navbarElementsList[4].classList.remove("disabled");
     } else if (userType == 'Coordinator') {
         console.log("This is the list");
         console.log(navbarElementsList);
