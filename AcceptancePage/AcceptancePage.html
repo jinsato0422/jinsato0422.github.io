@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Award System Scholarship Webpage</title>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- The css for Scholarship Page -->
+    <link rel="stylesheet" href="AcceptancePage.css">
+
+    <style>
+    /* spacing */
+
+    table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+      border: 3px solid green;
+      text-align: center;
+    }
+
+    table th {
+          background-color: #1D8348;
+          color: white;
+    }
+
+    thead th:nth-child(1) {
+      width: 20%;
+    }
+
+    thead th:nth-child(2) {
+      width: 10%;
+    }
+
+    thead th:nth-child(3) {
+      width: 10%;
+    }
+
+    thead th:nth-child(4) {
+      width: 10%;
+    }
+
+    thead th:nth-child(5) {
+      width: 30%;
+    }
+
+    thead th:nth-child(6) {
+      width: 20%;
+    }
+
+    table tr:nth-child(even) {
+          background-color: #D6D5D5;
+        }
+    table tr:nth-child(odd) {
+         background-color: #fff;
+        }
+
+    th, td {
+      padding: 20px;
+    }
+
+    html {
+        font-family: "helvetica neue", helvetica, arial, sans-serif;
+    }
+
+    th {
+        letter-spacing: 2px;
+    }
+
+    td {
+        letter-spacing: 1px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+    	<h1>CONGRATULATIONS!</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9">
+                <div class="panel-group">
+                    <small>You have been selected to receive the following award(s). 
+                    <br>Select the award(s) you would like to accept or decline, if applicable.
+                    </small>
+                    <br>
+                    <br><b>Student Award Status:</b>
+                        <br>Offered:
+                            <small>Student notified, accept or decline required</small>
+                        <br>Accepted:
+                            <small>Award payment initiated, not yet paid</small>
+                        <br>Short-listed:
+                            <small>Student is on short-list and will be notified if status changes</small>
+                        <br>Declined:
+                            <small>Award open to next student on waitlist</small>
+                        <br>Disbursed:
+                            <small>Undergraduate award payment applied to student tuition and fees; Graduate award payment deposited to student bank account</small>
+                        <br>External Disbursement:
+                            <small>Award payment is paid by cheque directly to you and mailed to your address from the donor.</small>
+                </div>
+            </div>
+            <div class="col-xl-3">
+                <div class="panel-group">
+                    <h5>Awards Selected</h5>
+                    <p id = "Semester">Semester: </p>
+                    <p id = "Yearly">Yearly: </p>
+                </div>
+            </div>
+        <div class="row">
+            <table>
+            </table>
+            <div id="scholarship-list" class="row"></div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Add the entire Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+
+    <script src="AcceptancePage.js"></script>
+</body>
+</html>
