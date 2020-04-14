@@ -437,6 +437,7 @@ function viewTranscript() {
     var storageRef = firebase.storage().ref()
     var transcriptStorageRef = storageRef.child(fileName_TS)
     transcriptStorageRef.getDownloadURL().then(function(url) {
+
 		window.open(url);
 	});
 }
