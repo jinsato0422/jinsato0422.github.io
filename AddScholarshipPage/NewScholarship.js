@@ -1,7 +1,8 @@
 var id
+//References the form
 const form = document.querySelector('#addscholarship');
 
-//Saving data
+//Saving data to the database
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('Scholarship Database').doc(form.d_id.value).set({
