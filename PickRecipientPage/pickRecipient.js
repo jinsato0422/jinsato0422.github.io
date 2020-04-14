@@ -437,15 +437,7 @@ function viewTranscript() {
     var storageRef = firebase.storage().ref()
     var transcriptStorageRef = storageRef.child(fileName_TS)
     transcriptStorageRef.getDownloadURL().then(function(url) {
-        var xhr = new XMLHttpRequest();
-        if("withCredentials" in xhr){
-            xhr.open('GET', url, true);
-        }
-        xhr.responseType = 'blob';
-        xhr.onload = function(event) {
-            var blob = xhr.response;
-        };
-        xhr.send();
+        window.open(url);
 }
 
 
@@ -455,13 +447,7 @@ function viewSupportingDoc() {
     var storageRef = firebase.storage().ref()
     var supdocStorageRef = storageRef.child(fileName_SD)
     supdocStorageRef.getDownloadURL().then(function(url) {
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = 'blob';
-        xhr.onload = function(event) {
-            var blob = xhr.response;
-        };
-        xhr.open('GET', url);
-        xhr.send();
+        window.open(url);
     })
 }
 
