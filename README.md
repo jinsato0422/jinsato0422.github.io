@@ -31,7 +31,7 @@ JJRey Scholarship System:
     5. ScholarshipPage.html
        This page is for viewing all the available scholarships for all students. 
        This page includes the filter box and all the scholarships. 
-       The filter box has no functionality yet.
+       With the filter box, we can filter the scholarships coreesponding to the categories the user checks the checkboxes.
        Each scholarships are structured in a box shape, which includes a short description 
        and below there will be a "Learn More" button. This button toggles the hidden content of each box 
        which includes more information about the scholarships. 
