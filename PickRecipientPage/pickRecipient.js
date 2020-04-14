@@ -225,7 +225,6 @@ function findCandidateInformation(candidates) {
                 if (scholarshipShortlist) {
 
                     database.collection('shortlist').doc(doc.id).get().then(shortlisting => {
-                        console.log(shortlisting.data());
 
                         //Determine if candidate is shortlisted for the selected scholarship
                         if (shortlisting.data() != undefined) {
@@ -356,9 +355,11 @@ function processApplicantListing(listingType) {
 
                 if (!alreadyListed) {
                     shortlistedScholarships.push(currentScholarship.id);
+					var shortlistedAcceptDates = doc.data().acceptDate;
+					shortlistedAcceptDates.push(Date.now() + twoWeeksInMilliseconds);
 
                     //Already has an existing file but not for this scholarship, add the scholarship
-                    return data.update({ scholarshipID: shortlistedScholarships });
+                    return data.update({ scholarshipID: shortlistedScholarships, acceptDate: shortlistedAcceptDates });
                 } else {
                     return Promise;
                 }
@@ -366,6 +367,8 @@ function processApplicantListing(listingType) {
             } else {
                 // No file, create a new file with the scholarship
                 return database.collection(listingType).doc(currentCandidate.id).set({
+					acceptedScholarships: [],
+					acceptDate: [twoWeeksInMilliseconds + Date.now()],
                     id: currentCandidate.id,
                     name: currentCandidate.name,
                     scholarshipID: [currentScholarship.id]
@@ -383,8 +386,14 @@ function processApplicantListing(listingType) {
                     window.location.href = "../PickRecipientPage/pickRecipient.html?" + queryString;
                 });
             } else {
-                //Recieved scholarship, email needs to be sent
-                sendConfirmationEmail();
+                //Update how many scholarships have been taken!
+				var numTaken = currentScholarship.data().numberTaken;
+				if (numTaken == undefined){
+					numTaken = 1
+				}
+				database.collection('Scholarship Database').doc(currentScholarship.id).update({
+					numberTaken: numTaken
+				}).then(sendConfirmationEmail());
             }
         });
     })
