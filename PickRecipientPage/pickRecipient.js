@@ -138,7 +138,7 @@ function displayCandidates() {
 
 
     //No candidates have applied
-    if (candidates.length === 0) {
+    if (candidates.length == 0) {
         candidateSelectionPane.header.innerText = "It seems that no one has applied for the " +
             scholarshipToFind + " at this time. \n\n Please select another scholarship " +
             "to view applicants.";
@@ -437,7 +437,9 @@ function viewTranscript() {
     var storageRef = firebase.storage().ref()
     var transcriptStorageRef = storageRef.child(fileName_TS)
     transcriptStorageRef.getDownloadURL().then(function(url) {
-        window.open(url);
+
+		window.open(url);
+	});
 }
 
 
@@ -447,7 +449,7 @@ function viewSupportingDoc() {
     var storageRef = firebase.storage().ref()
     var supdocStorageRef = storageRef.child(fileName_SD)
     supdocStorageRef.getDownloadURL().then(function(url) {
-        window.open(url);
+		window.open(url);
     })
 }
 

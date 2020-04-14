@@ -1,5 +1,6 @@
 <html>
 
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -12,9 +13,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
     <!-- A link to the smtp an emailing service that sends emails giving a password requiest -->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
 
 </head>
-
 
 <body>
     <!-- Navbar -->
@@ -106,13 +107,13 @@
         <br>
 
         <!-- Buttons for potential actions the scholarship coordinator can partake in -->
-        <input type="button" id="transcript" value="View Transcript" onclick=v iewTranscript()>
-        <input type="button" id="supportingDoc" value="View Supporting Documents" onclick=v iewSupportingDoc()>
+        <input type="button" id="transcript" value="View Transcript" onclick=viewTranscript()>
+        <input type="button" id="supportingDoc" value="View Supporting Documents" onclick=viewSupportingDoc()>
         <br><br>
-        <input type="button" id="select" value="Select Applicant" onclick=s electApplicant()>
-        <input type="button" id="shortlist" value="Shortlist Applicant" onclick=s hortlistApplicant()>
+        <input type="button" id="select" value="Select Applicant" onclick=selectApplicant()>
+        <input type="button" id="shortlist" value="Shortlist Applicant" onclick=shortlistApplicant()>
         <br><br>
-        <input type="button" id="return" value="Return To Applicants" onclick=r eturnToApplicants()>
+        <input type="button" id="return" value="Return To Applicants" onclick=returnToApplicants()>
     </form>
 
 
