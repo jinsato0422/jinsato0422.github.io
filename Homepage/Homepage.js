@@ -48,9 +48,12 @@ function getDatabase(name) {
 // Checks if the user is vaild
 function UserDisplay(userType) {
     if (userType == 'Student') {
+        var navbarElementsList = document.querySelectorAll('.nav-item');
         if (document.querySelector('#apply') != null) {
             document.querySelector('#apply').setAttribute("onclick", "window.location.href ='../ApplyPage/applicationform.html?" + findUser() + "';");
         }
+        navbarElementsList[3].classList.remove("d-none");
+        navbarElementsList[3].classList.remove("disabled");
     } else if (userType == 'Coordinator') {
         var navbarElementsList = document.querySelectorAll('.nav-item');
         console.log("This is the list");
@@ -81,8 +84,9 @@ function InitHomepage() {
     navbarElementsList[0].setAttribute('href', "../HomePage/HomePage.html?" + findUser());
     navbarElementsList[1].setAttribute('href', "../ScholarshipPage/ScholarshipPage.html?" + findUser());
     navbarElementsList[2].setAttribute('href', "../StatisticsPage/StatisticsPage.html?" + findUser());
-    navbarElementsList[3].setAttribute('href', "../AddScholarshipPage/NewScholarship.html?" + findUser());
-    navbarElementsList[4].setAttribute('href', "../PickRecipientPage/pickRecipient.html?" + findUser());
+    navbarElementsList[3].setAttribute('href', "../AcceptancePage/AcceptancePage.html?" + findUser());
+    navbarElementsList[4].setAttribute('href', "../AddScholarshipPage/NewScholarship.html?" + findUser());
+    navbarElementsList[5].setAttribute('href', "../PickRecipientPage/pickRecipient.html?" + findUser());
     console.log(document.querySelector('#apply'));
 
     if (document.querySelector('#learn') != null) {
