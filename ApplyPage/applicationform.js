@@ -147,7 +147,7 @@ function sendConfirmation(){
     queryString = queryString.substring(1);
 
 	
-	window.location.href = "../Homepage/homepage.html?" + queryString;
+	window.location.href = "../index.html?" + queryString;
 }
 
 
