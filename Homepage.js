@@ -77,7 +77,7 @@ function UserDisplay(userType) {
 // sets the links and buttons
 function InitHomepage() {
     var navbarElementsList = document.querySelectorAll('.nav-link');
-    navbarElementsList[0].setAttribute('href', "../HomePage/HomePage.html?" + findUser());
+    navbarElementsList[0].setAttribute('href', "../index.html?" + findUser());
     navbarElementsList[1].setAttribute('href', "../ScholarshipPage/ScholarshipPage.html?" + findUser());
 
     navbarElementsList[2].setAttribute('href', "../StatisticsPage/StatisticsPage.html?" + findUser());
