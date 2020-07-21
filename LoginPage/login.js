@@ -57,7 +57,7 @@ function verifyPassword() {
     } else {
 		
 		// Adds username so system can determine user type for the mainpage
-		window.location.href ="../Homepage/Homepage.html?" + user.username;
+		window.location.href ="../index.html?" + user.username;
 	}
 
 }
